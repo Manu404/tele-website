@@ -77,3 +77,11 @@
     width: 100%;
   }
 }
+
+.previewImage {
+  cursor: pointer;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+}

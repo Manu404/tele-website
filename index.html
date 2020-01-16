@@ -30,9 +30,9 @@
             Is a project initiated in 2019 by guitarist Emmanuel Istace. After years of interest in multiple genre and others' projects, this one is the convergence of his musical and software/electronic engeneering skills.<br />
             The goal ? Perform "In C", alone, and provide a new experience of the piece to the audience every time. With a strong emphasis on "true" live performance, no automation or prerecorded material or synth/virtual instruments.<br />
             The ensemble is composed of a set of 8 independent loopers, the whole controlled by Emmanuel Istace, and his guitar as a sound brush.<br />
-            For this performance, a lot of both musical and technical challenge had to be overcome, leading to months of refinements and practice, developping custom software and electronic solutions and being able to perform this piece alone and provide memorable experience for the audience.
+            For this performance, a lot of both musical and technical challenge had to be overcome, leading to months of preparation to perform this piece alone and provide a memorable experience for the audience.
             An emphasis had been made on the live performance, using a couple led matrix crates/speaker for each looper, as if they were performers on stage.
-            Those crates/speaker can be organized on stage in row regardin their L/R panning or placed in a room where audience can navigate between each one, creating a different, yet interesting and immersive experience of the piece.
+            Those crates/speaker can be organized on stage in row regarding their L/R panning or placed in a room where audience can navigate between each one, creating a different, yet interesting and immersive experience of the piece.
             </p>
         </div>
     </div>
@@ -54,18 +54,7 @@
             </p>
         </div>
     </div>
-    <div class="row">
-        <div class="offset-xl-2 col-xl-8 col-md-8 col-xs-8 text-center">
-            <!-- Trigger the Modal -->
-            <img id="myImg" src="img/inc_score.gif" alt="Score of In C by Terry Riley" style="width:100%;max-width:400px">
-
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="img01">
-                <div id="caption"></div>
-            </div>
-        </div>
+    <div class="modalImage" data-id="score" data-url="img/inc_score.gif" data-caption="Score of In C by Terry Riley">
     </div>
 
     <div class="row">
@@ -95,8 +84,13 @@
             <p>
                 Live looping is a technique that consist or recording live a sound and playing it back, one or multiple times. <br />
                 The main idea of live looping is to use no automation or pre-recorded materials during the performance, everything you ear, was played, recorded and mixed during the live performance by the artist.
+                <br />
+                For the need of this performance, Mobius was first used, hosted in Reaper. But the encouter of Emmanuel Reveneau along way lead the artist to discover Usine
+                and design a fully custom live environement.
             </p>
         </div>
+    </div>
+    <div class="modalImage" data-id="usine" data-url="img/usine.png" data-caption="Screenshot of Usine HollyHock 4, used as live performance software.">
     </div>
 
     <div class="row">
@@ -111,6 +105,8 @@
             </p>
         </div>
     </div>
+    <div class="modalImage" data-id="matrix" data-url="img/matrix.jpg" data-caption="The LGHS led matrix used in this project.">
+    </div>
 
 
 
@@ -124,7 +120,7 @@
 <script src="vendor/html5shiv/html5shiv.min.js"></script>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/modal.min.js"></script>
+<script src="js/modal.js"></script>
 
 </body>
 </html>
