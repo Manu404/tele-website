@@ -18,43 +18,51 @@ function BuildModals(){
     var modals = document.getElementsByClassName("modalImage");
     Array.prototype.forEach.call(modals, function(current) {
         var col = document.createElement("div");
+        var preview = document.createElement("div");
         var img = document.createElement("img");
         var caption = document.createElement("div");
         var modal = document.createElement("div");
         var modalClose = document.createElement("span");
         var modalImg = document.createElement("img");
         var modalCaption = document.createElement("div");
+        var captionPara = document.createElement("p");
 
         col.classList.add("offset-xl-2", "col-xl-8", "col-md-8", "col-xs-8", "text-center");
+
+        preview.classList.add("preview");
 
         img.id = current.dataset.id + "Img";
         img.src = current.dataset.url;
         img.alt = current.dataset.caption;
         img.classList.add("img-fluid", "previewImage");
 
-        var captionText =  document.createTextNode(current.dataset.caption);
-        var captionPara = document.createElement("p");
+        captionPara.classList.add("previewCaption");
 
         modal.id = current.dataset.id + "Modal";
         modal.classList.add("modal");
 
         modalClose.id = current.dataset.id + "ModalClose";
-        modalClose.classList.add("close");
-        modalClose.appendChild(document.createTextNode("x"));
+        modalClose.classList.add("modalClose");
 
         modalImg.id = current.dataset.id + "ModalImg";
         modalImg.classList.add("modal-content");
+
         modalCaption.id = current.dataset.id + "ModalCaption";
+        modalCaption.classList.add("modalCaption");
+
+        modalClose.appendChild(document.createTextNode("x"));
 
         modal.appendChild(modalClose);
         modal.appendChild(modalImg);
         modal.appendChild(modalCaption);
 
-        captionPara.appendChild(captionText);
+        captionPara.appendChild(document.createTextNode(current.dataset.caption));
         caption.appendChild(captionPara);
 
-        col.appendChild(img);
-        col.appendChild(caption);
+        preview.appendChild(img);
+        preview.appendChild(caption);
+
+        col.appendChild(preview);
         col.appendChild(modal);
 
         current.classList.add("row");
