@@ -1,0 +1,21 @@
+@import "./node_modules/bootswatch/dist/slate/variables.scss";
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+@import "./node_modules/bootswatch/dist/slate/bootswatch.scss";
+@import "modal.scss";
+
+body {
+  color: #dddddd;
+}
+
+h3, h1, p {
+  font-weight: lighter;
+}
+
+h3 {
+   font-size: 26px;
+ }
+
+.row {
+  margin-top: 20px;
+}
+
