@@ -5,7 +5,7 @@ Website for "The Electric Looper Orchestra"
 * npm install
 * gulp <task>
 
-tasks
+Gulp tasks
 * clean, css, scss, js, vendor
 * prod  => build folder to deply
 * build => dev build;
