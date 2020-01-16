@@ -9,7 +9,7 @@ Website for "The Electric Looper Orchestra"
 Gulp tasks
 
     clean, css, scss, js, vendor
-    prod => build folder to deply
+    prod => build folder to deploy
     build => dev build;
     watch => auto build;
     pack => build zip for deployment from prod folder;
