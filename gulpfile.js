@@ -42,17 +42,10 @@ function modules() {
     var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*.min.*').pipe(gulp.dest('./vendor/bootstrap'));
     var jquery = gulp.src([
         './node_modules/jquery/dist/*.min.js',
-        '!./node_modules/jquery/dist/core.min.js',
-        './node_modules/jquery-ui-dist/*.min.js',
-        './node_modules/jquery-ui-touch-punch/*.min.js',
-        './node_modules/jquery.easing/*.min.js'
+        '!./node_modules/jquery/dist/core.min.js'
     ]).pipe(gulp.dest('./vendor/jquery'));
     var html5shiv = gulp.src('./node_modules/html5shiv/dist/**/*.min.js').pipe(gulp.dest('./vendor/html5shiv'));
-    var jquery_css = gulp.src('./node_modules/jquery-ui-dist/**/*.css').pipe(gulp.dest('./vendor/jquery/css'));
-    var faw = gulp.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*').pipe(gulp.dest('./vendor/fontawesome-free/webfonts'));
-    var fac = gulp.src('./node_modules/@fortawesome/fontawesome-free/css/all.min.css').pipe(gulp.dest('./vendor/fontawesome-free/css'));
-    var animejs = gulp.src('./node_modules/animejs/lib/*.js').pipe(gulp.dest('./vendor/animejs'));
-    return merge(bootstrap, jquery, faw, fac, jquery_css, animejs, html5shiv);
+    return merge(bootstrap, jquery, html5shiv);
 }
 
 function css() {

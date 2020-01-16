@@ -8,20 +8,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "animejs": "^3.1.0",
     "bootstrap": "4.3.1",
     "bootswatch": "^4.4.1",
     "del": "^5.0.0",
     "gulp-add-src": "^1.0.0",
     "html5shiv": "^3.7.3",
-    "jquery": "3.4.1",
-    "jquery-ui": "^1.12.1",
-    "jquery-ui-dist": "^1.12.1",
-    "jquery-ui-touch-punch": "^0.2.3",
-    "jquery.easing": "^1.4.1"
+    "jquery": "3.4.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.10.1",
     "browser-sync": "2.26.7",
     "gulp": "4.0.2",
     "gulp-autoprefixer": "6.1.0",
