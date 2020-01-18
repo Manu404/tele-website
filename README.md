@@ -2,9 +2,8 @@
 
 Website for "The Electric Looper Orchestra"
 
-    npm install gulp --global
     npm install
-    gulp
+    gulp pack
 
 Gulp tasks
 
