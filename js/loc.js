@@ -2,20 +2,12 @@ var availableLang = ["fr","en"];
 var defaultLanguage = "en";
 var cachedLanguage = [];
 
-function languageExist(lang){
-    for(var i = 0; i < availableLang.length; i++){
-        if(availableLang[i] === lang) return true;
-    }
-    return false;
-}
-
 function downloadLanguageFile(lang) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            var xml = this.responseXML.getElementsByTagName("content")[0];
-            cachedLanguage[lang] = xml;
-            build(xml);
+            cachedLanguage[lang] = this.responseXML.getElementsByTagName("content")[0];
+            buildPage(cachedLanguage[lang]);
         }
     };
     xmlhttp.open("GET", "content_"+lang+".xml", true);
@@ -23,19 +15,19 @@ function downloadLanguageFile(lang) {
 }
 
 function loadLanguageFile(lang) {
-    if(!languageExist(lang)) lang = defaultLanguage;
+    if(!availableLang.includes(lang)) lang = defaultLanguage;
     setCookie("lang", lang, 15);
     if(cachedLanguage[lang] === undefined)
         downloadLanguageFile(lang);
     else
-        build(cachedLanguage[lang]);
+        buildPage(cachedLanguage[lang]);
 }
 
 function loadLanguage(){
     var lang = getCookie("lang");
-    if(languageExist(lang))
+    if(availableLang.includes(lang))
         loadLanguageFile(lang);
-    else if(languageExist(navigator.language))
+    else if(availableLang.includes(navigator.language))
         loadLanguageFile(navigator.language);
     else
         loadLanguageFile(defaultLanguage);

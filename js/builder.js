@@ -70,7 +70,7 @@ function buildHeader(url, caption){
     return row;
 }
 
-function build(xml) {
+function buildPage(xml) {
     resetHolders();
     var content  = document.createElement("div");
     document.getElementById("modalHolder").appendChild(buildModalHolder());

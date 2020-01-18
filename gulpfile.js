@@ -15,6 +15,7 @@ const uglify = require("gulp-uglify");
 const zip = require('gulp-zip');
 var addsrc = require('gulp-add-src');
 const pkg = require('./package.json');
+ var concat = require('gulp-concat');
 
 // BrowserSync
 function browserSync(done) {
@@ -46,6 +47,17 @@ function modules() {
     ]).pipe(gulp.dest('./vendor/jquery'));
     var html5shiv = gulp.src('./node_modules/html5shiv/dist/**/*.min.js').pipe(gulp.dest('./vendor/html5shiv'));
     return merge(bootstrap, jquery, html5shiv);
+}
+
+function mergeCoreJs(){
+    return gulp
+        .src([
+            './js/*.js',
+            '!./js/*.min.js',
+            '!all*.js'
+        ])
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('./js/'));
 }
 
 function css() {
@@ -125,7 +137,7 @@ gulp.task('mkZip', () =>
 
 // Define complex tasks
 const vendor = gulp.series(clean, modules);
-const build = gulp.series(vendor, gulp.parallel(scss, js));
+const build = gulp.series(vendor, mergeCoreJs, gulp.parallel(scss, js));
 const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 const prod = gulp.series(build, 'buildProd');
 const pack = gulp.series(prod, 'mkZip');
