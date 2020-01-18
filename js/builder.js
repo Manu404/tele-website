@@ -1,23 +1,38 @@
-function getContentAsync() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            build(this);
-        }
-    };
-    xmlhttp.open("GET", "content.xml", true);
-    xmlhttp.send();
+function  buildDefaultCol() {
+    var col = document.createElement("div");
+    col.classList.add("offset-xl-2", "col-xl-8", "col-md-8", "col-xs-8");
+    return col;
+}
+
+function buildDefaultRow(){
+    var row = document.createElement("div");
+    row.classList.add("row");
+    return row;
 }
 
 function buildTitle(content, direction){
-    var row = document.createElement("div");
-    var col = document.createElement("div");
+    var row = buildDefaultRow();
     var h = document.createElement("h3");
     var text = document.createTextNode(content);
+    var col = buildDefaultCol();
 
-    row.classList.add("row");
-    col.classList.add("offset-xl-2", "col-xl-8", "col-md-8", "col-xs-8");
-    h.classList.add((direction == 1 ? "float-right" : "float-left"));
+    h.classList.add((direction === 1 ? "float-right" : "float-left"));
+
+    h.appendChild(text);
+    col.appendChild(h);
+    row.appendChild(col);
+
+    return row;
+}
+
+function buildFooter(content){
+    var row = buildDefaultRow();
+    var col = buildDefaultCol();
+    var h = document.createElement("h1");
+    var text = document.createTextNode(content);
+
+    row.classList.add("footer");
+    col.classList.add("text-center");
 
     h.appendChild(text);
     col.appendChild(h);
@@ -27,33 +42,19 @@ function buildTitle(content, direction){
 }
 
 function buildText(content){
-    var row = document.createElement("div");
-    var col = document.createElement("div");
+    var row = buildDefaultRow();
+    var col = buildDefaultCol();
     var p = document.createElement("p");
-    var text = document.createTextNode(content);
 
-    row.classList.add("row");
-    col.classList.add("offset-xl-2", "col-xl-8", "col-md-8", "col-xs-8");
-
-    p.appendChild(text);
+    p.innerHTML = content;
     col.appendChild(p);
     row.appendChild(col);
 
     return row;
 }
 
-function buildImage(id, url, caption){
-    var img = document.createElement("div");
-    img.classList.add("modalImage");
-    img.dataset.id = id;
-    img.dataset.url = url;
-    img.dataset.caption = caption;
-    buildModal(img);
-    return img;
-}
-
 function buildHeader(url, caption){
-    var row = document.createElement("div");
+    var row = buildDefaultRow();
     var col = document.createElement("div");
     var img = document.createElement("img");
 
@@ -61,7 +62,6 @@ function buildHeader(url, caption){
     img.src = url;
     img.alt = caption;
 
-    row.classList.add("row");
     col.classList.add("col-12", "text-center");
 
     col.appendChild(img);
@@ -71,11 +71,11 @@ function buildHeader(url, caption){
 }
 
 function build(xml) {
+    resetHolders();
     var content  = document.createElement("div");
-    var x = xml.responseXML.getElementsByTagName("content")[0];
-    document.getElementById("modalHolder").appendChild(buildHolder());
-    for (var i = 0, t = 0; i< x.children.length; i++) {
-        var node = x.children[i];
+    document.getElementById("modalHolder").appendChild(buildModalHolder());
+    for (var i = 0, t = 0; i< xml.children.length; i++) {
+        var node = xml.children[i];
         var newNode;
         if(node.nodeName === "title"){
             newNode = (buildTitle(node.textContent, t++ % 2));
@@ -84,16 +84,23 @@ function build(xml) {
             newNode = (buildText(node.textContent));
         }
         else if(node.nodeName === "image") {
-            newNode = (buildImage(node.getAttribute("id"), node.getAttribute("url"), node.textContent));
+            newNode = (buildModalImage(node.getAttribute("id"), node.getAttribute("url"), node.textContent));
         }
         else if(node.nodeName === "header") {
             newNode = (buildHeader(node.getAttribute("url"), node.textContent));
+        }
+        else if(node.nodeName === "footer") {
+            newNode = (buildFooter(node.textContent));
         }
         if(newNode != null)
             content.appendChild(newNode);
     }
     document.getElementById("contentHolder").appendChild(content);
-    document.title = x.getAttribute("title");
+    document.title = xml.getAttribute("title");
 }
 
-getContentAsync();
+function resetHolders(){
+    document.getElementById("contentHolder").innerHTML = "";
+    document.getElementById("modalHolder").innerHTML = "";
+}
+

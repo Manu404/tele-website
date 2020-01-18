@@ -1,4 +1,4 @@
-function buildHolder() {
+function buildModalHolder() {
     var modal = document.createElement("div");
     var modalClose = document.createElement("span");
     var modalImg = document.createElement("img");
@@ -28,8 +28,9 @@ function buildHolder() {
     return modal;
 }
 
-function buildModal(current){
-    var col = document.createElement("div");
+function buildModalImage(id, url,  cap){
+    var row = buildDefaultRow();
+    var col = buildDefaultCol();
     var preview = document.createElement("div");
     var img = document.createElement("img");
     var caption = document.createElement("div");
@@ -39,13 +40,13 @@ function buildModal(current){
     var modalImg = document.getElementById("ModalImg");
     var captionText = document.getElementById("ModalCaption");
 
-    col.classList.add("offset-xl-2", "col-xl-8", "col-md-8", "col-xs-8", "text-center");
+    col.classList.add("text-center");
 
     preview.classList.add("preview");
 
-    img.id = current.dataset.id + "Img";
-    img.src = current.dataset.url;
-    img.alt = current.dataset.caption;
+    img.id = id + "Img";
+    img.src = url;
+    img.alt = cap;
     img.classList.add("img-fluid", "previewImage");
     img.onclick = function () {
         modal.style.display = "block";
@@ -55,14 +56,12 @@ function buildModal(current){
 
     captionPara.classList.add("previewCaption");
 
-    captionPara.appendChild(document.createTextNode(current.dataset.caption));
+    captionPara.innerHTML = cap;
     caption.appendChild(captionPara);
     preview.appendChild(img);
     preview.appendChild(caption);
     col.appendChild(preview);
-    current.classList.add("row");
-    current.appendChild(col);
-
-
-
+    row.classList.add("row");
+    row.appendChild(col);
+    return row;
 }

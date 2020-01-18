@@ -9,23 +9,22 @@
 </head>
 <body>
 <div class="container text-justify">
-
-    <div id="contentHolder"></div>
-
-    <div class="row" style="margin-bottom: 100px; margin-top: 80px">
-        <div class="offset-xl-2 col-xl-8 col-md-8 col-xs-8 text-center">
-            <h1>Live footage coming soon...</h1>
-        </div>
+    <div id="languageList">
+        <a href="#" onclick="loadLanguageFile('en')" data-lang="en" title="English">EN</a>
+        <a href="#" onclick="loadLanguageFile('fr')" data-lang="fr" title="French">FR</a>
     </div>
 
+    <div id="contentHolder"></div>
     <div id="modalHolder"></div>
 </div>
 
 <script src="vendor/html5shiv/html5shiv.min.js"></script>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/modal.min.js"></script>
-<script src="js/builder.min.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/cookies.js"></script>
+<script src="js/builder.js"></script>
+<script src="js/loc.js"></script>
 
 </body>
 </html>

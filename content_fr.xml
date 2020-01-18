@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content title="The Electric Looper Ensemble" lang="fr">
+    <header url="img/header.png">The Electric Looper Ensemble</header>
+    <title>What is "The Electric Looper Ensemble" ?</title>
+    <text>
+    <![CDATA[
+    FR /
+        Is a project initiated in 2019 by guitarist Emmanuel Istace. After years of interest in multiple genre and
+        others' projects, this one is the convergence of his musical and software/electronic engineering skills.<br />
+        The goal ? Perform "In C", alone, and provide a new experience of the piece to the audience every time.
+        With a strong emphasis on "true" live performance, no automation or prerecorded material or synth/virtual
+        instruments.<br />
+        The ensemble is composed of a set of 8 independent loopers, the whole controlled by Emmanuel Istace, and his
+        guitar as a sound brush.<br />
+        For this performance, a lot of both musical and technical challenge had to be overcome, leading to months of
+        preparation to perform this piece alone and provide a memorable experience for the audience.
+        An emphasis had been made on the live performance, using a couple led matrix crates/speaker for each looper,
+        as if they were performers on stage.
+        Those crates/speaker can be organized on stage in row regarding their L/R panning or placed in a room where
+        audience can navigate between each one, creating a different, yet interesting and immersive experience of the
+        piece.
+    ]]>
+    </text>
+    <title>What is "In C" ?</title>
+    <text>
+        <![CDATA[
+            "In C" is a piece composed by <a href="https://en.wikipedia.org/wiki/Terry_Riley">Terry Riley<a/>
+            in 1964 for an undefined number of performers. It is a series of
+            53 short melodic fragment and is usually considered as one the first minimalist piece written.
+            During the performance, each musician have the control over continuing to play the current motif, moving to
+            the next one or stop playing and wait to join back.
+            That can be considered as kind of "composed improvisation", where each performers would rely on repetitive
+            "licks".
+            Due to the qualities of each fragment, music emerge from the performers choices, phasing play a major role
+            in creating new interesting sound, melodies and textures.
+            The piece has an average duration of 45 to 90 minutes, and is performed by "The Electric Looper Ensemble"
+            usually in 30 to 45 minutes, each performance being unique.
+            This performance consider each looper as an individual performer, so this could be considered an octet
+            performance.
+        ]]>
+    </text>
+    <image url="img/inc_score.gif" id="score">Score of In C by Terry Riley</image>
+    <title>Why only use a single guitar ?</title>
+    <text>
+        <![CDATA[
+            It would be tempting to use different instruments, and it was envision at the beginning, to switch between
+            an electric bass, fender stratocaster guitar, gibson es-125 guitar, nylon classical guitar and a mandoline.
+            But it's even more challenging and satisfying for the performer and the audience to ear that variety of
+            colors and texture coming from a single instrument. A great benefit is taken from the basic volume and
+            tone controls on the guitar itself.
+            <br />As Andres Segovia said: "the guitar is an orchestra", it's a major part of the interest a guitarist
+            sustain toward his instrument over his musical journey. To discover, learn and control those different
+            voices on the instrument, sometimes relying on "unorthodox" techniques. The guitar is like giving focus
+            on a section of the orchestra, and that focus can be achieved by the variety of tone it can produce.
+            <br />"The guitar is the only stringed instrument really polyphonic", said maestro Segovia too, meaning
+            multiple notes can be played at the same time, while most of the other stringed instrument have to rely
+            on arpeggios or limited polyphony for the average musician. But yet, the guitar is not like a piano, each
+            string have her own character, her own soul and intentions, and the same pitch can be found on multiple
+            places through different strings, yet, with singular remarkable differences between each. Those are then
+            filtered by the performer technique who decide how those singular position will sound regarding their
+            intrinsic characteristics.
+            <br />Most think those qualities are lost outside of the truly acoustic nylon classical guitar, but same
+            techniques and considerations leading to beautiful expressiveness apply to the electric guitar.
+        ]]>
+    </text>
+    <title>What is Live Looping ?</title>
+    <text>
+        <![CDATA[
+                Live looping is a technique that consist or recording live a sound and playing it back, one or multiple
+                times. <br />
+                The main idea of live looping is to use no automation or pre-recorded materials during the performance,
+                everything you ear, was played, recorded and mixed during the live performance by the artist.
+                <br />
+                For the need of this performance, <a href="http://www.circularlabs.com/">Mobius</a>
+                was first used, hosted in <a href="https://www.reaper.fm/">Reaper</a>. But the encounter of
+                <a href="https://www.facebook.com/TheLucidBrain/">Emmanuel Reveneau</a>,
+                author of <a href="https://www.facebook.com/groups/NOundo/">NOundo</a>
+                along way lead the artist to discover <a href="https://www.brainmodular.com/">Usine</a> and design a
+                fully custom live environment.
+        ]]>
+    </text>
+    <image url="img/usine.png" id="usine">
+        <![CDATA[
+            Screenshot of <a href="https://www.brainmodular.com/">Usine HollyHock 4</a>, developed by
+            <a href="https://www.brainmodular.com/about.html">Olivier Sens</a>, used as live performance software.
+        ]]>
+    </image>
+    <image url="img/moonburst.png" id="moonburst">
+        Screenshot of Moonburst, developed by the artist. Moonburst is an
+        arduino based solution for musician that aim to provide a generic midi open source interface that accept as
+        many 'generic' controller as possible, keeping the cost factor really low, yet versatile and open. Some
+        solutions already exists, but not as I envision mine, or at high costs and sometimes long learning curve.
+    </image>
+    <title>What are those crates ?</title>
+    <text>
+        <![CDATA[
+            Each matrix is build around a design adapted by <a href="https://www.lghs.be/">Liège Hackerspace</a> from
+            (TODO) project. It consist of a led within each bottle in crates, then controlled by an electronic
+            device that allows to push information about what to display.
+            For this case, each matrix/speaker are in fact independent.
+            They all act as a receiver from their associated looper and act as autonomous unit.
+            To communicate, they are all in network to share audio signal. Each crate allow to have a
+            visual feedback of each loop through sound visualization
+            algorithms.
+        ]]>
+    </text>
+    <image url="img/matrix.jpg" id="matrix">
+        <![CDATA[
+            The <a href="https://www.lghs.be/">Liège Hackerspace</a> led matrix used in this project.
+        ]]>
+    </image>
+    <footer>Live footage coming soon...</footer>
+</content>

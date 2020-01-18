@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ec730f6-12cf-465e-9df7-a705bbe3429b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/content.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/builder.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content_fr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/cookies.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/loc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content.xml" beforeDir="false" afterPath="$PROJECT_DIR$/content_en.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/builder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/style.scss" afterDir="false" />
     </list>
@@ -29,8 +32,13 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../personal-website-v2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64_2\www\tele-website" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -58,7 +66,7 @@
       <workItem from="1579001443427" duration="616000" />
       <workItem from="1579181327915" duration="403000" />
       <workItem from="1579182307114" duration="9442000" />
-      <workItem from="1579357268975" duration="4778000" />
+      <workItem from="1579357268975" duration="9696000" />
     </task>
     <servers />
   </component>

@@ -22,3 +22,19 @@ h3 {
 .header-image {
   opacity: 0.9;
 }
+
+.footer {
+  margin-bottom: 100px;
+  margin-top: 80px
+}
+
+#languageList {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  padding: 0.5em 0.7em;
+  display: block;
+  width: 40px;
+  height: auto;
+  z-index: 99;
+}
