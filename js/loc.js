@@ -1,4 +1,4 @@
-var availableLang = ["fr","en"];
+var availableLang = ["fr", "en"];
 var defaultLanguage = "en";
 var cachedLanguage = [];
 
@@ -10,7 +10,7 @@ function downloadLanguageFile(lang) {
             buildPage(cachedLanguage[lang]);
         }
     };
-    xmlhttp.open("GET", "content_"+lang+".xml", true);
+    xmlhttp.open("GET", "content/"+lang+".xml", true);
     xmlhttp.send();
 }
 

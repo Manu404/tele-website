@@ -54,7 +54,7 @@ function mergeCoreJs(){
         .src([
             './js/*.js',
             '!./js/*.min.js',
-            '!all*.js'
+            '!./js/*all*.js'
         ])
         .pipe(concat('all.js'))
         .pipe(gulp.dest('./js/'));
@@ -126,8 +126,8 @@ gulp.task('buildProd', () => {
         .pipe(gulp.dest('./release/vendor/'));
     var index = gulp.src(['./index.html'])
         .pipe(gulp.dest('./release/'));
-    var loc = gulp.src(['./content_*.xml'])
-        .pipe(gulp.dest('./release/'));
+    var loc = gulp.src(['./content/*'])
+        .pipe(gulp.dest('./release/content/'));
     return merge(css, img, js, vendor, index, loc);
 });
 

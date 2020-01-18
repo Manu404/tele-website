@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ec730f6-12cf-465e-9df7-a705bbe3429b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/content/en.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/fr.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content_en.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content_fr.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/loc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loc.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +64,7 @@
       <workItem from="1579001443427" duration="616000" />
       <workItem from="1579181327915" duration="403000" />
       <workItem from="1579182307114" duration="9442000" />
-      <workItem from="1579357268975" duration="11644000" />
+      <workItem from="1579357268975" duration="12112000" />
     </task>
     <servers />
   </component>
