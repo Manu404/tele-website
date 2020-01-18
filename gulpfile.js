@@ -13,9 +13,9 @@ const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
 const zip = require('gulp-zip');
-var addsrc = require('gulp-add-src');
+const addsrc = require('gulp-add-src');
 const pkg = require('./package.json');
- var concat = require('gulp-concat');
+const concat = require('gulp-concat');
 
 // BrowserSync
 function browserSync(done) {
@@ -49,7 +49,7 @@ function modules() {
     return merge(bootstrap, jquery, html5shiv);
 }
 
-function mergeCoreJs(){
+function mergeJs(){
     return gulp
         .src([
             './js/*.js',
@@ -58,19 +58,6 @@ function mergeCoreJs(){
         ])
         .pipe(concat('all.js'))
         .pipe(gulp.dest('./js/'));
-}
-
-function css() {
-    return gulp
-        .src(["./css/**/*.css", "!./css/**/*.min.css"])
-        .pipe(plumber())
-        .pipe(gulp.dest("./css"))
-        .pipe(rename({
-            suffix: ".min"
-        }))
-        .pipe(cleanCSS())
-        .pipe(gulp.dest("./css"))
-        .pipe(browsersync.stream());
 }
 
 function scss() {
@@ -112,7 +99,7 @@ function watchFiles() {
     gulp.watch("./**/*.html", browserSyncReload);
 }
 
-gulp.task('buildProd', () => {
+gulp.task('release', () => {
     var css = gulp.src(['./css/**/*', '!./css/*.css', './css/*.min.css',])
         .pipe(gulp.dest('./release/css/'));
     var img = gulp.src(['./img/**/*'], {allowEmpty: true})
@@ -121,8 +108,7 @@ gulp.task('buildProd', () => {
         .pipe(gulp.dest('./release/js/'));
     var vendor = gulp.src(['./vendor/**/*',
         '!./vendor/**/*.js', './vendor/**/*.min.js',
-        '!./vendor/**/*.css', '!./vendor/**/*.map', './vendor/**/*.min.css',
-        './vendor/**/aos.css', './vendor/**/aos.js'])
+        '!./vendor/**/*.css', '!./vendor/**/*.map', './vendor/**/*.min.css'])
         .pipe(gulp.dest('./release/vendor/'));
     var index = gulp.src(['./index.html'])
         .pipe(gulp.dest('./release/'));
@@ -139,13 +125,12 @@ gulp.task('mkZip', () =>
 
 // Define complex tasks
 const vendor = gulp.series(clean, modules);
-const build = gulp.series(vendor, mergeCoreJs, gulp.parallel(scss, js));
+const build = gulp.series(vendor, mergeJs, gulp.parallel(scss, js));
 const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
-const prod = gulp.series(build, 'buildProd');
+const prod = gulp.series(build, 'release');
 const pack = gulp.series(prod, 'mkZip');
 
 // Export tasks
-exports.css = css;
 exports.scss = scss;
 exports.js = js;
 exports.clean = clean;
