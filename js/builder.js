@@ -71,7 +71,8 @@ function buildHeader(url, caption){
 }
 
 function buildPage(xml) {
-    resetHolders();
+    clearHolders();
+    buildLanguageSelector(xml.getAttribute("lang"));
     var content  = document.createElement("div");
     document.getElementById("modalHolder").appendChild(buildModalHolder());
     for (var i = 0, t = 0; i< xml.children.length; i++) {
@@ -84,7 +85,7 @@ function buildPage(xml) {
             newNode = (buildText(node.textContent));
         }
         else if(node.nodeName === "image") {
-            newNode = (buildModalImage(node.getAttribute("id"), node.getAttribute("url"), node.textContent));
+            newNode = (buildModalImage(node.getAttribute("url"), node.textContent));
         }
         else if(node.nodeName === "header") {
             newNode = (buildHeader(node.getAttribute("url"), node.textContent));
@@ -99,8 +100,26 @@ function buildPage(xml) {
     document.title = xml.getAttribute("title");
 }
 
-function resetHolders(){
+function buildLanguageSelector(selected) {
+    for(var i = 0;  i < availableLang.length; i++){
+        var option = document.createElement("a");
+        option.href = "#";
+        option.dataset.lang = availableLang[i];
+        option.innerText = availableLang[i].toUpperCase();
+        option.onclick = function(source)  {
+            loadLanguageFile(source.target.dataset.lang);
+        };
+        if(selected === availableLang[i])
+            option.classList.add("selected");
+        document.getElementById("languageList").appendChild(option);
+        document.getElementById("languageList").appendChild(document.createTextNode(" "));
+
+    }
+}
+
+function clearHolders(){
     document.getElementById("contentHolder").innerHTML = "";
     document.getElementById("modalHolder").innerHTML = "";
+    document.getElementById("languageList").innerHTML = "";
 }
 

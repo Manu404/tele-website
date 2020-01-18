@@ -33,10 +33,21 @@ h3 {
 #languageList {
   position: fixed;
   top: 0px;
-  right: 0px;
-  padding: 0.5em 0.7em;
+  right: 10px;
   display: block;
-  width: 40px;
   height: auto;
   z-index: 99;
+
+  a {
+    opacity: 0.5;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+
+  .selected {
+    opacity: 0.8;
+  }
 }
+

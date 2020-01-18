@@ -1,4 +1,4 @@
-var availableLang = ["fr", "en"];
+var availableLang = ["fr", "en", "nl"];
 var defaultLanguage = "en";
 var cachedLanguage = [];
 

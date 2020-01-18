@@ -28,7 +28,7 @@ function buildModalHolder() {
     return modal;
 }
 
-function buildModalImage(id, url,  cap){
+function buildModalImage(url,  cap){
     var row = buildDefaultRow();
     var col = buildDefaultCol();
     var preview = document.createElement("div");
@@ -38,20 +38,19 @@ function buildModalImage(id, url,  cap){
 
     var modal = document.getElementById("Modal");
     var modalImg = document.getElementById("ModalImg");
-    var captionText = document.getElementById("ModalCaption");
+    var modalCaption = document.getElementById("ModalCaption");
 
     col.classList.add("text-center");
 
     preview.classList.add("preview");
 
-    img.id = id + "Img";
     img.src = url;
     img.alt = cap;
     img.classList.add("img-fluid", "previewImage");
     img.onclick = function () {
         modal.style.display = "block";
         modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
+        modalCaption.innerHTML = this.alt;
     };
 
     captionPara.classList.add("previewCaption");
@@ -61,7 +60,6 @@ function buildModalImage(id, url,  cap){
     preview.appendChild(img);
     preview.appendChild(caption);
     col.appendChild(preview);
-    row.classList.add("row");
     row.appendChild(col);
     return row;
 }
