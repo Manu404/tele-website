@@ -117,7 +117,7 @@ gulp.task('buildProd', () => {
         .pipe(gulp.dest('./release/css/'));
     var img = gulp.src(['./img/**/*'], {allowEmpty: true})
         .pipe(gulp.dest('./release/img/'));
-    var js = gulp.src(['./js/**/*', '!./js/*.js', './js/*.min.js',])
+    var js = gulp.src(['./js/all.min.js',])
         .pipe(gulp.dest('./release/js/'));
     var vendor = gulp.src(['./vendor/**/*',
         '!./vendor/**/*.js', './vendor/**/*.min.js',
@@ -126,7 +126,9 @@ gulp.task('buildProd', () => {
         .pipe(gulp.dest('./release/vendor/'));
     var index = gulp.src(['./index.html'])
         .pipe(gulp.dest('./release/'));
-    return merge(css, img, js, vendor, index);
+    var loc = gulp.src(['./content_*.xml'])
+        .pipe(gulp.dest('./release/'));
+    return merge(css, img, js, vendor, index, loc);
 });
 
 gulp.task('mkZip', () =>

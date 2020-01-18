@@ -1,7 +1,9 @@
 @import "./node_modules/bootswatch/dist/slate/variables.scss";
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
 @import "./node_modules/bootswatch/dist/slate/bootswatch.scss";
-@import "modal.scss";
+@import "_bootswatch.scss";
+@import "_variables.scss";
+@import "_modal.scss";
 
 body {
   color: #dddddd;
