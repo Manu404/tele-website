@@ -1,5 +1,6 @@
 {
   "name": "tele_website",
+  "title": "tele_website",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -10,8 +11,6 @@
   "dependencies": {
     "bootstrap": "4.3.1",
     "bootswatch": "^4.4.1",
-    "del": "^5.0.0",
-    "gulp-add-src": "^1.0.0",
     "html5shiv": "^3.7.3",
     "jquery": "3.4.1"
   },
@@ -27,7 +26,9 @@
     "gulp-sass": "4.0.2",
     "gulp-uglify": "3.0.2",
     "gulp-zip": "^5.0.0",
-    "merge-stream": "2.0.0"
+    "merge-stream": "2.0.0",
+    "del": "^5.0.0",
+    "gulp-add-src": "^1.0.0"
   },
   "browserslist": [
     "> 1%",
