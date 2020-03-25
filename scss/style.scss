@@ -39,7 +39,7 @@ h1, h3 {
 }
 
 .row {
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .header-image {
@@ -53,13 +53,6 @@ h1, h3 {
 }
 
 #languageList {
-  position: fixed;
-  top: 0px;
-  right: 10px;
-  display: block;
-  height: auto;
-  z-index: 99;
-
   a {
     opacity: 0.8;
 
