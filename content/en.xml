@@ -112,10 +112,23 @@
             The <a href="https://www.lghs.be/">Liège Hackerspace</a> led matrix used in this project.
         ]]>
     </image>
-    <band>Live footage coming soon...</band>
+    <band>
+        <![CDATA[
+            <h1>Live footage coming soon...</h1>
+        ]]>
+    </band>
     <footer>
         <![CDATA[
             Project and website initiated in 2019 by <a href="https://emmanuelistace.be">Emmanuel Istace</a>.
         ]]>
     </footer>
+    <modal title="Booking informations" link="Booking" closeCaption="Close" id="booking">
+        <![CDATA[
+            Thank you, your interest is really appreciated. <br /><br />
+            You can send a mail to contact@emmanuelistace.be or
+            <a href="mailto:contact@emmanuelistace.be">click here</a>
+            to receive details about the performance.<br /><br />
+            Talk to you soon.
+        ]]>
+    </modal>
 </content>

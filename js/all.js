@@ -44,14 +44,15 @@ function buildFooter(content){
 function buildBand(content){
     var row = buildDefaultRow();
     var col = buildDefaultCol();
-    var h = document.createElement("h1");
+    var p = document.createElement("p");
     var text = document.createTextNode(content);
 
     row.classList.add("band");
     col.classList.add("text-center");
 
-    h.appendChild(text);
-    col.appendChild(h);
+    p.innerHTML = content;
+
+    col.appendChild(p);
     row.appendChild(col);
 
     return row;
@@ -88,6 +89,69 @@ function buildHeader(url, caption){
     return row;
 }
 
+function buildModal(id, titleContentText, closeCaptionText, contentText) {
+    var modal = document.createElement("div");
+    var dialog = document.createElement("div");
+    var content = document.createElement("div");
+    var header = document.createElement("div");
+    var body = document.createElement("div");
+    var footer = document.createElement("div");
+    var title = document.createElement("h5");
+    var titleText = document.createTextNode(titleContentText);
+    var titleCloseButton = document.createElement("button");
+    var closeButton = document.createElement("button");
+    var modalClose = document.createElement("span");
+
+    modal.classList.add("modal", "fade");
+    dialog.classList.add("modal-dialog");
+    content.classList.add("modal-content");
+    header.classList.add("modal-header");
+    body.classList.add("modal-body");
+    footer.classList.add("modal-footer");
+
+    title.classList.add("modal-title");
+    title.appendChild(titleText);
+
+    titleCloseButton.classList.add("close");
+    titleCloseButton.type = "button";
+    titleCloseButton.setAttribute("data-dismiss", "modal");
+    modalClose.appendChild(document.createTextNode("x"));
+    titleCloseButton.appendChild(modalClose);
+
+    header.appendChild(title);
+    header.appendChild(titleCloseButton);
+
+    body.innerHTML = contentText;
+
+    closeButton.classList.add("btn");
+    closeButton.type = "button";
+    closeButton.setAttribute("data-dismiss", "modal");
+    closeButton.appendChild(document.createTextNode(closeCaptionText));
+
+    footer.appendChild(closeButton);
+
+    content.appendChild(header);
+    content.appendChild(body);
+    content.appendChild(footer);
+
+    dialog.appendChild(content);
+
+    modal.appendChild(dialog);
+    modal.id=id;
+
+    return modal;
+}
+
+function buildModalLink(caption, id){
+    var link = document.createElement("a");
+    link.classList.add("nav-item");
+    link.href = "#";
+    link.setAttribute("data-toggle", "modal");
+    link.setAttribute("data-target", "#" + id);
+    link.appendChild(document.createTextNode(caption));
+    return link;
+}
+
 function buildPage(xml) {
     clearHolders();
     buildLanguageSelector(xml.getAttribute("lang"));
@@ -113,6 +177,10 @@ function buildPage(xml) {
         }
         else if(node.nodeName === "footer") {
             newNode = (buildFooter(node.textContent));
+        }
+        else if(node.nodeName === "modal") {
+            newNode = (buildModal(node.getAttribute("id"), node.getAttribute("title"), node.getAttribute("closeCaption"), node.textContent));
+            document.getElementById("modalLinks").appendChild(buildModalLink(node.getAttribute("link"),node.getAttribute("id")));
         }
         if(newNode != null)
             content.appendChild(newNode);
@@ -142,6 +210,7 @@ function clearHolders(){
     document.getElementById("contentHolder").innerHTML = "";
     document.getElementById("modalHolder").innerHTML = "";
     document.getElementById("languageList").innerHTML = "";
+    document.getElementById("modalLinks").innerText = "";
 }
 
 
@@ -211,7 +280,7 @@ function buildModalHolder() {
     var modalImg = document.createElement("img");
     var modalCaption = document.createElement("div");
 
-    modal.classList.add("modal");
+    modal.classList.add("modal-img", "modal");
     modal.id="Modal";
 
     modalClose.id = "ModalClose";
@@ -270,3 +339,4 @@ function buildModalImage(url,  cap){
     row.appendChild(col);
     return row;
 }
+

@@ -4,7 +4,7 @@ function buildModalHolder() {
     var modalImg = document.createElement("img");
     var modalCaption = document.createElement("div");
 
-    modal.classList.add("modal");
+    modal.classList.add("modal-img", "modal");
     modal.id="Modal";
 
     modalClose.id = "ModalClose";
@@ -63,3 +63,4 @@ function buildModalImage(url,  cap){
     row.appendChild(col);
     return row;
 }
+
