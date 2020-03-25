@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content title="The Electric Looper Ensemble" lang="fr">
     <header url="img/header_color.png">The Electric Looper Ensemble</header>
+    <text>
+        <![CDATA[
+        <p style="text-align:center;">
+        <iframe width="100%" height="360" src="https://www.youtube.com/embed/NpEaa2P7qZI?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+        </p>
+        ]]>
+    </text>
     <title>Qu'est-ce que "The Electric Looper Ensemble" ?</title>
     <text>
     <![CDATA[
@@ -23,7 +30,7 @@
     <title>Qu'est-ce que "In C" ?</title>
     <text>
         <![CDATA[
-            "In C" est une pièce composé par <a href="https://en.wikipedia.org/wiki/Terry_Riley">Terry Riley<a/>
+            "In C" est une pièce composé par <a href="https://en.wikipedia.org/wiki/Terry_Riley" target="_blank">Terry Riley<a/>
             en 1964 pour un nombre indéfinis de musiciens. Il consiste en une série de 53 motifs mélodiques courts et 
 			souvent considéré comme une des premières pièce minimaliste écrite. Pendant l'interpretation, chaque musicien 
 			a le choix de continuer de jouer son motif, passer au suivant, ou s'arrêter pour rejoindre l'ensemble plus tards.
@@ -66,18 +73,18 @@
 			voir en boucle. <br />
 			L'idée principal dans ce cas ci n'est d'utiliser pas de matériel pré enregistré ou d'automation. Tout ce qui est 
 			entendu a été joué, enregistré et mixé durant la performance. <br />
-            Pour les plus techniques, afin de répondre aux besoins de cette performance, <a href="http://www.circularlabs.com/">Mobius</a>
-            à d'abord été utilisé, hebergé dans <a href="https://www.reaper.fm/">Reaper</a>. Mais c'est la rencontre de
-                <a href="https://www.facebook.com/TheLucidBrain/">Emmanuel Reveneau</a>,
-                auteur de <a href="https://www.facebook.com/groups/NOundo/">NOundo</a>
-                qui a mené l'artiste à utiliser le logiciel <a href="https://www.brainmodular.com/">Usine</a> 
+            Pour les plus techniques, afin de répondre aux besoins de cette performance, <a href="http://www.circularlabs.com/" target="_blank">Mobius</a>
+            à d'abord été utilisé, hebergé dans <a href="https://www.reaper.fm/" target="_blank">Reaper</a>. Mais c'est la rencontre de
+                <a href="https://www.facebook.com/TheLucidBrain/" target="_blank">Emmanuel Reveneau</a>,
+                auteur de <a href="https://www.facebook.com/groups/NOundo/" target="_blank">NOundo</a>
+                qui a mené l'artiste à utiliser le logiciel <a href="https://www.brainmodular.com/" target="_blank">Usine</a>
 				et concevoir un environnement live totallement personalisé et sur mesure.
         ]]>
     </text>
     <image url="img/usine.png">
         <![CDATA[
-            Capture d'écran de <a href="https://www.brainmodular.com/">Usine HollyHock 4</a>, dévelopé par
-            <a href="https://www.brainmodular.com/about.html">Olivier Sens</a>, utilisé comme outil de performance live.
+            Capture d'écran de <a href="https://www.brainmodular.com/" target="_blank">Usine HollyHock 4</a>, dévelopé par
+            <a href="https://www.brainmodular.com/about.html" target="_blank">Olivier Sens</a>, utilisé comme outil de performance live.
         ]]>
     </image>
     <image url="img/moonburst.png">
@@ -86,7 +93,7 @@
     <title>Que sont ces casiers ?</title>
     <text>
         <![CDATA[
-            Chauqe matrice est concue et designé par le <a href="https://www.lghs.be/">Liège Hackerspace</a> d'après
+            Chauqe matrice est concue et designé par le <a href="https://www.lghs.be/" target="_blank">Liège Hackerspace</a> d'après
 			le projet de (TODO). Il consiste en un casier avec une led dans chaque bouteille, controllé ensuite electroniquement.
 			Dans le cas de cette performance, chaque casier/enceintes sont en fait indépendant et représente
 			en direct ce qui est joué par chaque loopers.
@@ -94,13 +101,22 @@
     </text>
     <image url="img/matrix.jpg">
         <![CDATA[
-            La matrice développé par le <a href="https://www.lghs.be/">Liège Hackerspace</a> utilisé pour ce projet.
+            La matrice développé par le <a href="https://www.lghs.be/" target="_blank">Liège Hackerspace</a> utilisé pour ce projet.
         ]]>
     </image>
     <band>Live footage coming soon...</band>
     <footer>
         <![CDATA[
-            Project and website initiated in 2019 by <a href="https://emmanuelistace.be">Emmanuel Istace</a>.
+            Project and website initiated in 2019 by <a href="https://emmanuelistace.be" target="_blank">Emmanuel Istace</a>.
         ]]>
     </footer>
+    <modal title="Booking informations" link="Book Me!" closeCaption="Close" id="booking">
+        <![CDATA[
+            Thank you, your interest is really appreciated. <br /><br />
+            You can send a mail to contact@emmanuelistace.be or
+            <a href="mailto:contact@emmanuelistace.be">click here</a>
+            to receive details about the performance.<br /><br />
+            Talk to you soon.
+        ]]>
+    </modal>
 </content>

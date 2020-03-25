@@ -1,17 +1,10 @@
 function buildModalHolder() {
     var modal = document.createElement("div");
-    var modalClose = document.createElement("span");
     var modalImg = document.createElement("img");
     var modalCaption = document.createElement("div");
 
     modal.classList.add("modal-img", "modal");
     modal.id="Modal";
-
-    modalClose.id = "ModalClose";
-    modalClose.classList.add("modalClose");
-    modalClose.onclick = function () {
-        modal.style.display = "none";
-    };
 
     modalImg.id ="ModalImg";
     modalImg.classList.add("modal-content");
@@ -19,11 +12,12 @@ function buildModalHolder() {
     modalCaption.id = "ModalCaption";
     modalCaption.classList.add("modalCaption");
 
-    modalClose.appendChild(document.createTextNode("x"));
-
-    modal.appendChild(modalClose);
     modal.appendChild(modalImg);
     modal.appendChild(modalCaption);
+
+    modal.onclick = function () {
+        modal.style.display = "none";
+    };
 
     return modal;
 }
