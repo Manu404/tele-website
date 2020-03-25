@@ -7,6 +7,14 @@
 
 body {
   color: #dddddd;
+  background-image: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container {
+  background-color: rgba(0,0,0,0.1);
 }
 
 a {

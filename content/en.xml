@@ -23,7 +23,7 @@
     <title>What is "In C" ?</title>
     <text>
         <![CDATA[
-            "In C" is a piece composed by <a href="https://en.wikipedia.org/wiki/Terry_Riley">Terry Riley<a/>
+            "In C" is a piece composed by <a href="https://en.wikipedia.org/wiki/Terry_Riley">Terry Riley<a/> (1935 - )
             in 1964 for an undefined number of performers. It is a series of
             53 short melodic fragment and is usually considered as one the first minimalist piece written.
             During the performance, each musician have the control over continuing to play the current motif, moving to
@@ -38,7 +38,7 @@
             performance.
         ]]>
     </text>
-    <image url="img/inc_score.gif">Score of "In C" by Terry Riley</image>
+    <image url="img/inc_part.png">First patterns of "In C" by Terry Riley</image>
     <title>Why only use a single guitar ?</title>
     <text>
         <![CDATA[
@@ -47,19 +47,21 @@
             But it's even more challenging and satisfying for the performer and the audience to ear that variety of
             colors and texture coming from a single instrument. A great benefit is taken from the basic volume and
             tone controls on the guitar itself.
-            <br />As Andres Segovia said: "the guitar is an orchestra", it's a major part of the interest a guitarist
+            <br />As <a href="https://en.wikipedia.org/wiki/Andr%C3%A9s_Segovia">Andrés Segovia</a> (1893 - 1987)
+            said: "the guitar is an orchestra" (1), it's a major part of the interest a guitarist
             sustain toward his instrument over his musical journey. To discover, learn and control those different
             voices on the instrument, sometimes relying on "unorthodox" techniques. The guitar is like giving focus
             on a section of the orchestra, and that focus can be achieved by the variety of tone it can produce.
-            <br />"The guitar is the only stringed instrument really polyphonic", said maestro Segovia too, meaning
+            <br />"The guitar is the only stringed instrument really polyphonic" (1), said maestro Segovia too, meaning
             multiple notes can be played at the same time, while most of the other stringed instrument have to rely
             on arpeggios or limited polyphony for the average musician. But yet, the guitar is not like a piano, each
             string have her own character, her own soul and intentions, and the same pitch can be found on multiple
             places through different strings, yet, with singular remarkable differences between each. Those are then
             filtered by the performer technique who decide how those singular position will sound regarding their
             intrinsic characteristics.
-            <br />Most think those qualities are lost outside of the truly acoustic nylon classical guitar, but same
-            techniques and considerations leading to beautiful expressiveness apply to the electric guitar.
+            <br />Some think those qualities are lost outside of the truly acoustic nylon classical guitar, but same
+            techniques and considerations leading to beautiful expressiveness apply to the electric guitar.<br /><br />
+            <em>(1) Segovia at Los Olivos - Documentary about Andrés Segovia, 1967 - from 00:12:30</em>
         ]]>
     </text>
     <title>What is Live Looping ?</title>

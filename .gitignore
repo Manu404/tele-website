@@ -2,3 +2,9 @@
 /vendor
 /.idea
 /release
+/css/style.min.css
+/js/all.min.js
+/js/builder.min.js
+/js/cookies.min.js
+/js/modal.min.js
+/css
