@@ -17,7 +17,7 @@
 // Navbar ======================================================================
 
 .navbar {
-  border: 1px solid rgba(0, 0, 0, 0.6);
+  border: 0px solid rgba(0, 0, 0, 0.6);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 
   .container {
@@ -25,7 +25,7 @@
   }
 
   .navbar-toggler {
-    border-color: rgba(0, 0, 0, 0.6);
+    border-color: rgba(0, 0, 0, 0.0);
   }
 
   &-fixed-top {

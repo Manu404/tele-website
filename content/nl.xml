@@ -108,5 +108,10 @@
             The <a href="https://www.lghs.be/">Liège Hackerspace</a> led matrix used in this project.
         ]]>
     </image>
-    <footer>Live footage coming soon...</footer>
+    <band>Live footage coming soon...</band>
+    <footer>
+        <![CDATA[
+            Project and website initiated in 2019 by <a href="https://emmanuelistace.be">Emmanuel Istace</a>.
+        ]]>
+    </footer>
 </content>

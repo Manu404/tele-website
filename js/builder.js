@@ -28,10 +28,26 @@ function buildTitle(content, direction){
 function buildFooter(content){
     var row = buildDefaultRow();
     var col = buildDefaultCol();
+    var p = document.createElement("p");
+
+    row.classList.add("footer");
+    col.classList.add("text-center");
+
+    p.innerHTML = content;
+
+    col.appendChild(p);
+    row.appendChild(col);
+
+    return row;
+}
+
+function buildBand(content){
+    var row = buildDefaultRow();
+    var col = buildDefaultCol();
     var h = document.createElement("h1");
     var text = document.createTextNode(content);
 
-    row.classList.add("footer");
+    row.classList.add("band");
     col.classList.add("text-center");
 
     h.appendChild(text);
@@ -64,6 +80,8 @@ function buildHeader(url, caption){
 
     col.classList.add("col-12", "text-center");
 
+    row.classList.add("header")
+
     col.appendChild(img);
     row.appendChild(col);
 
@@ -89,6 +107,9 @@ function buildPage(xml) {
         }
         else if(node.nodeName === "header") {
             newNode = (buildHeader(node.getAttribute("url"), node.textContent));
+        }
+        else if(node.nodeName === "band") {
+            newNode = (buildBand(node.textContent));
         }
         else if(node.nodeName === "footer") {
             newNode = (buildFooter(node.textContent));
