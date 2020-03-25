@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content title="The Electric Looper Ensemble" lang="en">
-    <header url="img/header.png">The Electric Looper Ensemble</header>
+    <header url="img/header_color.png">The Electric Looper Ensemble</header>
     <title>What is "The Electric Looper Ensemble" ?</title>
     <text>
     <![CDATA[
@@ -82,8 +82,8 @@
     </text>
     <image url="img/usine.png">
         <![CDATA[
-            <a href="https://www.brainmodular.com/">Usine HollyHock 4</a>, developed by
-            <a href="https://www.brainmodular.com/about.html">Olivier Sens</a>, used as live performance software.
+            Main live environment developed by the artist in <a href="https://www.brainmodular.com/">Usine HollyHock 4</a> by
+            <a href="https://www.brainmodular.com/about.html">Olivier Sens</a>.
         ]]>
     </image>
     <image url="img/moonburst.png">

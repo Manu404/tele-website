@@ -66,7 +66,7 @@
 
 .preview {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.95;
   &:hover {
     opacity: 1;
   }
@@ -74,4 +74,5 @@
 
 .previewCaption {
   font-size: 0.9em;
+  font-weight: 200;
 }

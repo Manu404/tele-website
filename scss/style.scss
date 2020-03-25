@@ -6,15 +6,16 @@
 @import "_modal.scss";
 
 body {
-  color: #dddddd;
+  color: #ebebeb;
   background-image: url("../img/bg.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  background-position: top;
 }
 
 .container {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.25);
 }
 
 a {
@@ -22,24 +23,33 @@ a {
 }
 
 h3, h1, p {
-  font-weight: lighter;
+  font-family: 'Raleway', sans-serif;
+}
+
+p {
+  font-weight: 200;
 }
 
 h3 {
    font-size: 26px;
- }
+}
+
+h1, h3 {
+  font-weight: 200;
+}
 
 .row {
   margin-top: 20px;
 }
 
 .header-image {
-  opacity: 0.9;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .footer {
   margin-bottom: 100px;
-  margin-top: 80px
+  margin-top: 80px;
 }
 
 #languageList {
@@ -51,7 +61,7 @@ h3 {
   z-index: 99;
 
   a {
-    opacity: 0.5;
+    opacity: 0.8;
 
     &:hover{
       opacity: 1;
