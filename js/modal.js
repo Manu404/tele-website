@@ -8,16 +8,15 @@ function buildModalHolder() {
 
     modalImg.id ="ModalImg";
     modalImg.classList.add("modal-content");
+    modalImg.onclick = function () {
+        modal.style.display = "none";
+    };
 
     modalCaption.id = "ModalCaption";
     modalCaption.classList.add("modalCaption");
 
     modal.appendChild(modalImg);
     modal.appendChild(modalCaption);
-
-    modal.onclick = function () {
-        modal.style.display = "none";
-    };
 
     return modal;
 }

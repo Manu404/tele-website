@@ -152,11 +152,158 @@ function buildModalLink(caption, id){
     return link;
 }
 
+function builDynamicdBackgroundOption(caption, moment){
+
+}
+
+
+function buildDynamicBackgroundHolder(node){
+    var nav = document.createElement("li");
+    var nava = document.createElement("a");
+    var menu = document.createElement("div");
+    var icon = document.createElement("span");
+    var list = document.createElement("ul");
+
+    nav.classList.add("nav-item", "dropdown");
+    nava.classList.add("nav-link", "dropdown-toggle");
+    nava.href = "#";
+    nava.setAttribute("data-toggle", "dropdown");
+    icon.classList.add("fas", "fa-camera-retro");
+    nava.appendChild(icon);
+    menu.classList.add("dropdown-menu");
+    list.classList.add("list-inline");
+
+    for (var ib = 0; ib < node.children.length; ib++) {
+        var bg_node = node.children[ib];
+
+        if(bg_node.nodeName === "bg") {
+            var li = document.createElement("li");
+            li.classList.add("nav-item");
+            var a = document.createElement("a");
+            a.classList.add("nav-link");
+            a.href = "#";
+            a.dataset.moment = bg_node.getAttribute("moment");
+            a.innerText = bg_node.getAttribute("caption");
+            a.onclick = function (source) {
+                //loadLanguageFile(source.target.dataset.lang);
+                loadBackgroundImage(source.target.dataset.moment);
+            };
+            li.appendChild(a);
+            list.appendChild(li);
+            list.appendChild(document.createTextNode(" "));
+        }
+    }
+    menu.appendChild(list);
+
+    nav.appendChild(nava);
+    nav.appendChild(menu);
+
+    return nav;
+}
+
+function loadBackgroundImage(name){
+    document.getElementsByTagName('body')[0].style.backgroundImage = "url('img/bg_" + name + ".jpg')";
+}
+
+function loadCurrentBackground() {
+    var current = (new Date()).getHours();
+    var name;
+    if(current >= 6 && current < 13) {  name = "morning"; }
+    else if(current >= 13 && current < 19) { name = "day"; }
+    else if(current >= 19 && current < 22) { name = "evening"; }
+    else if(current >= 22 && current < 3) { name = "night"; }
+    else if(current >= 3 && current < 6) { name = "sleep"; }
+    else {
+        return;
+    }
+    loadBackgroundImage(name);
+}
+loadCurrentBackground();
+
+function buildLanguageSelector(selected) {
+    var nav = document.createElement("li");
+    var nava = document.createElement("a");
+    var menu = document.createElement("div");
+    var icon = document.createElement("span");
+
+    nav.classList.add("nav-item", "dropdown");
+    nava.classList.add("nav-link", "dropdown-toggle");
+    nava.href = "#";
+    nava.setAttribute("data-toggle", "dropdown");
+    icon.classList.add("fas", "fa-language");
+    nava.appendChild(icon);
+    menu.classList.add("dropdown-menu");
+
+    for(var i = 0;  i < availableLang.length; i++){
+        var li = document.createElement("li");
+        li.classList.add("nav-item");
+        var a = document.createElement("a");
+        a.classList.add("nav-link");
+        a.href = "#";
+        a.dataset.lang = availableLang[i];
+        a.innerText = availableLang[i].toUpperCase();
+        a.onclick = function(source)  {
+            loadLanguageFile(source.target.dataset.lang);
+        };
+        if(selected === availableLang[i])
+            a.classList.add("selected");
+        li.appendChild(a);
+        menu.appendChild(li);
+        menu.appendChild(document.createTextNode(" "));
+    }
+
+    nav.appendChild(nava);
+    nav.appendChild(menu);
+
+    return nav;
+}
+
+function buildNavBar() {
+    var nav = document.createElement("nav");
+    var toggleButton = document.createElement("button");
+    var toggleIcon = document.createElement("span");
+    var modalLinks = document.createElement("div");
+
+    var collapseBar = document.createElement("div");
+    var languageList = document.createElement("ul");
+    var bgSelect = document.createElement("ul");
+    var leftNavHolder = document.createElement("div");
+
+    nav.classList.add("navbar", "navbar-expand-sm", "navbar-dark", "bg-translucid-dark");
+    toggleButton.classList.add("navbar-toggler");
+    toggleButton.type = "button";
+    toggleButton.setAttribute("data-toggle", "collapse");
+    toggleButton.setAttribute("data-target", "#collapseBar");
+    toggleIcon.classList.add("navbar-toggler-icon");
+    toggleButton.appendChild(toggleIcon);
+
+    modalLinks.id="modalLinks";
+
+    //collapseBar.classList.add("collapse", "navbar-collapse");
+    //collapseBar.id = "collapseBar";
+    languageList.classList.add("navbar-nav");
+    languageList.id = "languageList";
+    bgSelect.classList.add("navbar-nav");
+    bgSelect.id="bgSelect";
+    leftNavHolder.classList.add("navbar-nav","ml-auto");
+    leftNavHolder.appendChild(bgSelect);
+    leftNavHolder.appendChild(languageList);
+    //collapseBar.appendChild(leftNavHolder);
+
+    //nav.appendChild(toggleButton);
+    nav.appendChild(modalLinks);
+    nav.appendChild(leftNavHolder);
+
+    return nav;
+}
+
 function buildPage(xml) {
     clearHolders();
-    buildLanguageSelector(xml.getAttribute("lang"));
-    var content  = document.createElement("div");
     document.getElementById("modalHolder").appendChild(buildModalHolder());
+    document.getElementById("navHolder").appendChild(buildNavBar());
+    document.getElementById("languageList").appendChild(buildLanguageSelector(xml.getAttribute("lang")));
+
+    var content  = document.createElement("div");
     for (var i = 0, t = 0; i< xml.children.length; i++) {
         var node = xml.children[i];
         var newNode;
@@ -182,6 +329,9 @@ function buildPage(xml) {
             newNode = (buildModal(node.getAttribute("id"), node.getAttribute("title"), node.getAttribute("closeCaption"), node.textContent));
             document.getElementById("modalLinks").appendChild(buildModalLink(node.getAttribute("link"),node.getAttribute("id")));
         }
+        else if(node.nodeName === "background") {
+            document.getElementById("bgSelect").appendChild(buildDynamicBackgroundHolder(node));
+        }
         if(newNode != null)
             content.appendChild(newNode);
     }
@@ -189,27 +339,9 @@ function buildPage(xml) {
     document.title = xml.getAttribute("title");
 }
 
-function buildLanguageSelector(selected) {
-    for(var i = 0;  i < availableLang.length; i++){
-        var option = document.createElement("a");
-        option.href = "#";
-        option.dataset.lang = availableLang[i];
-        option.innerText = availableLang[i].toUpperCase();
-        option.onclick = function(source)  {
-            loadLanguageFile(source.target.dataset.lang);
-        };
-        if(selected === availableLang[i])
-            option.classList.add("selected");
-        document.getElementById("languageList").appendChild(option);
-        document.getElementById("languageList").appendChild(document.createTextNode(" "));
-
-    }
-}
-
 function clearHolders(){
     document.getElementById("contentHolder").innerHTML = "";
     document.getElementById("modalHolder").innerHTML = "";
-    document.getElementById("languageList").innerHTML = "";
-    document.getElementById("modalLinks").innerText = "";
+    document.getElementById("navHolder").innerText = "";
 }
 

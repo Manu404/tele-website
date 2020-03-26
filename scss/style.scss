@@ -7,7 +7,6 @@
 
 body {
   color: #ebebeb;
-  background-image: url("../img/bg.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -33,7 +32,6 @@ h3 {
 h1, h3 {
   font-weight: 200;
 }
-
 
 .container {
   background-color: rgba(0,0,0,0.25);
@@ -64,26 +62,45 @@ h1, h3 {
   background-color: rgba(0,0,0,0.2);
 }
 
-#languageList {
-  padding: 10px;
-  a {
-    opacity: 0.8;
-
-    &:hover{
-      opacity: 1;
-    }
-  }
-
-  .selected {
-    opacity: 0.8;
-  }
-}
-
 .bg-translucid-dark {
   background-color: rgba(0,0,0,0.0);
 }
 
+.navbar {
+  padding: 0px !important;
+}
+
+.navbar-nav {
+  flex-direction: row !important;
+}
+
 .nav-item {
   text-decoration: none;
+}
+
+.nav-link {
+  border: none !important;
+  text-decoration: none;
+
+  &:hover{
+    background-image: none !important;
+  }
+}
+
+.nav-link:focus, .nav-link:hover {
+  background-image: none !important;
+  background-color: rgba(0, 0, 0, .1) !important;
+  border: none;
+}
+
+
+.dropdown-menu {
+  background-image: none !important;
+  background-color: rgba(0, 0, 0, .1);
+  border: none;
+  min-width: 100%;
+  line-height: 1;
+  z-index: 10000 !important;
+
 }
 

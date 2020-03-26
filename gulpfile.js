@@ -41,12 +41,16 @@ function clean() {
 
 function modules() {
     var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*.min.*').pipe(gulp.dest('./vendor/bootstrap'));
+    var fa = gulp.src([
+        './node_modules/@fortawesome/fontawesome-free/js/all.min.js',
+        './node_modules/@fortawesome/fontawesome-free/css/all.min.css'
+    ]).pipe(gulp.dest('./vendor/fa'));
     var jquery = gulp.src([
         './node_modules/jquery/dist/*.min.js',
         '!./node_modules/jquery/dist/core.min.js'
     ]).pipe(gulp.dest('./vendor/jquery'));
     var html5shiv = gulp.src('./node_modules/html5shiv/dist/**/*.min.js').pipe(gulp.dest('./vendor/html5shiv'));
-    return merge(bootstrap, jquery, html5shiv);
+    return merge(bootstrap, jquery, html5shiv, fa);
 }
 
 function mergeJs(){
