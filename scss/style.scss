@@ -66,6 +66,22 @@ h1, h3 {
   background-color: rgba(0,0,0,0.0);
 }
 
+.bg-img {
+  width: 100% !important;
+  height: 100vh !important;
+  position: fixed !important;
+  z-index: -1 !important;
+
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.bg-visible {
+  opacity: 1;
+}
+
 .navbar {
   padding: 0px !important;
 }

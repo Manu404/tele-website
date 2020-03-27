@@ -201,7 +201,28 @@ function buildDynamicBackgroundHolder(node){
 }
 
 function loadBackgroundImage(name){
-    document.getElementsByTagName('body')[0].style.backgroundImage = "url('img/bg_" + name + ".jpg')";
+    if(document.getElementById(name) != null)
+    {
+        showBackgroundImage(name);
+    }
+    else {
+        var img = document.createElement("img");
+        img.src = "img/bg_" + name + ".jpg";
+        img.id = name;
+        img.classList.add("bg-img");
+        img.onload = function (source) {
+            showBackgroundImage(source.target.id);
+        };
+        document.getElementsByClassName('bgImgHolder')[0].appendChild(img);
+    }
+}
+
+function showBackgroundImage(name){
+    var visible = document.getElementsByClassName('bg-visible');
+    for(var i = 0; visible.length; i++){
+        visible[i].classList.remove("bg-visible");
+    }
+    document.getElementById(name).classList.add("bg-visible");
 }
 
 function loadCurrentBackground() {
@@ -217,6 +238,7 @@ function loadCurrentBackground() {
     }
     loadBackgroundImage(name);
 }
+loadCurrentBackground();
 
 function buildLanguageSelector(selected) {
     var nav = document.createElement("li");
