@@ -217,7 +217,6 @@ function loadCurrentBackground() {
     }
     loadBackgroundImage(name);
 }
-loadCurrentBackground();
 
 function buildLanguageSelector(selected) {
     var nav = document.createElement("li");
