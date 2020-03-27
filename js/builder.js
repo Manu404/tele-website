@@ -168,7 +168,7 @@ function buildDynamicBackgroundHolder(node){
     nava.classList.add("nav-link", "dropdown-toggle");
     nava.href = "#";
     nava.setAttribute("data-toggle", "dropdown");
-    icon.classList.add("fas", "fa-camera-retro");
+    icon.classList.add("fas", "fa-cloud-moon");
     nava.appendChild(icon);
     menu.classList.add("dropdown-menu");
     list.classList.add("list-inline");
@@ -185,7 +185,6 @@ function buildDynamicBackgroundHolder(node){
             a.dataset.moment = bg_node.getAttribute("moment");
             a.innerText = bg_node.getAttribute("caption");
             a.onclick = function (source) {
-                //loadLanguageFile(source.target.dataset.lang);
                 loadBackgroundImage(source.target.dataset.moment);
             };
             li.appendChild(a);
@@ -226,13 +225,7 @@ function buildLanguageSelector(selected) {
     var menu = document.createElement("div");
     var icon = document.createElement("span");
 
-    nav.classList.add("nav-item", "dropdown");
-    nava.classList.add("nav-link", "dropdown-toggle");
-    nava.href = "#";
-    nava.setAttribute("data-toggle", "dropdown");
-    icon.classList.add("fas", "fa-language");
-    nava.appendChild(icon);
-    menu.classList.add("dropdown-menu");
+    nav.classList.add("navbar-nav");
 
     for(var i = 0;  i < availableLang.length; i++){
         var li = document.createElement("li");
@@ -248,12 +241,8 @@ function buildLanguageSelector(selected) {
         if(selected === availableLang[i])
             a.classList.add("selected");
         li.appendChild(a);
-        menu.appendChild(li);
-        menu.appendChild(document.createTextNode(" "));
+        nav.appendChild(li);
     }
-
-    nav.appendChild(nava);
-    nav.appendChild(menu);
 
     return nav;
 }
@@ -263,8 +252,6 @@ function buildNavBar() {
     var toggleButton = document.createElement("button");
     var toggleIcon = document.createElement("span");
     var modalLinks = document.createElement("div");
-
-    var collapseBar = document.createElement("div");
     var languageList = document.createElement("ul");
     var bgSelect = document.createElement("ul");
     var leftNavHolder = document.createElement("div");
@@ -279,18 +266,14 @@ function buildNavBar() {
 
     modalLinks.id="modalLinks";
 
-    //collapseBar.classList.add("collapse", "navbar-collapse");
-    //collapseBar.id = "collapseBar";
     languageList.classList.add("navbar-nav");
     languageList.id = "languageList";
     bgSelect.classList.add("navbar-nav");
     bgSelect.id="bgSelect";
     leftNavHolder.classList.add("navbar-nav","ml-auto");
-    leftNavHolder.appendChild(bgSelect);
     leftNavHolder.appendChild(languageList);
-    //collapseBar.appendChild(leftNavHolder);
+    leftNavHolder.appendChild(bgSelect);
 
-    //nav.appendChild(toggleButton);
     nav.appendChild(modalLinks);
     nav.appendChild(leftNavHolder);
 
