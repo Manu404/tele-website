@@ -143,13 +143,19 @@ function buildModal(id, titleContentText, closeCaptionText, contentText) {
 }
 
 function buildModalLink(caption, id){
+    var item = document.createElement("li");
     var link = document.createElement("a");
-    link.classList.add("nav-item");
+
+    item.classList.add("nav-item");
+    link.classList.add("nav-link");
+
     link.href = "#";
     link.setAttribute("data-toggle", "modal");
     link.setAttribute("data-target", "#" + id);
     link.appendChild(document.createTextNode(caption));
-    return link;
+
+    item.appendChild(link);
+    return item;
 }
 
 function builDynamicdBackgroundOption(caption, moment){
@@ -170,7 +176,7 @@ function buildDynamicBackgroundHolder(node){
     nava.setAttribute("data-toggle", "dropdown");
     icon.classList.add("fas", "fa-cloud-moon");
     nava.appendChild(icon);
-    menu.classList.add("dropdown-menu");
+    menu.classList.add("dropdown-menu", "dropdown-menu-right");
     list.classList.add("list-inline");
 
     for (var ib = 0; ib < node.children.length; ib++) {
@@ -206,6 +212,12 @@ function loadBackgroundImage(name){
         showBackgroundImage(name);
     }
     else {
+        var img_nav = document.createElement("img");
+        img_nav.src = "img/bg_" + name + ".jpg";
+        img_nav.id = "nav" + name;
+        img_nav.classList.add("bg-img-nav");
+        document.getElementsByClassName('bgNavImgHolder')[0].appendChild(img_nav);
+
         var img = document.createElement("img");
         img.src = "img/bg_" + name + ".jpg";
         img.id = name;
@@ -223,6 +235,12 @@ function showBackgroundImage(name){
         visible[i].classList.remove("bg-visible");
     }
     document.getElementById(name).classList.add("bg-visible");
+
+    var visiblenav = document.getElementsByClassName('bg-nav-visible');
+    for(var i = 0; visiblenav.length; i++){
+        visiblenav[i].classList.remove("bg-nav-visible");
+    }
+    document.getElementById("nav" + name).classList.add("bg-nav-visible");
 }
 
 function loadCurrentBackground() {
@@ -270,14 +288,15 @@ function buildLanguageSelector(selected) {
 
 function buildNavBar() {
     var nav = document.createElement("nav");
+    var navContainer = document.createElement("div");
     var toggleButton = document.createElement("button");
     var toggleIcon = document.createElement("span");
-    var modalLinks = document.createElement("div");
+    var modalLinks = document.createElement("ul");
     var languageList = document.createElement("ul");
     var bgSelect = document.createElement("ul");
     var leftNavHolder = document.createElement("div");
 
-    nav.classList.add("navbar", "navbar-expand-sm", "navbar-dark", "bg-translucid-dark", "fixed-top");
+    nav.classList.add("navbar", "navbar-expand", "navbar-dark", "bg-translucid-dark", "fixed-top");
     toggleButton.classList.add("navbar-toggler");
     toggleButton.type = "button";
     toggleButton.setAttribute("data-toggle", "collapse");
@@ -286,6 +305,7 @@ function buildNavBar() {
     toggleButton.appendChild(toggleIcon);
 
     modalLinks.id="modalLinks";
+    modalLinks.classList.add("navbar-nav", "text-center");
 
     languageList.classList.add("navbar-nav");
     languageList.id = "languageList";

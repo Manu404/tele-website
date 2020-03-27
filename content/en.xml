@@ -133,7 +133,7 @@
     </band>
     <footer>
         <![CDATA[
-            Project and website initiated in 2019 by <a href="https://emmanuelistace.be">Emmanuel Istace</a>.
+            Project, website and design by <a href="https://emmanuelistace.be">Emmanuel Istace</a>
         ]]>
     </footer>
     <modal title="Booking informations" link="Book Me!" closeCaption="Close" id="booking">
