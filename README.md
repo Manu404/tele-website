@@ -1,6 +1,6 @@
 # tele-website
 
-Website for "The Electric Looper Orchestra"
+Website for "The Electric Looper Ensemble"
 
     npm install
     gulp pack
