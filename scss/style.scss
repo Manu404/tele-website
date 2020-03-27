@@ -6,30 +6,19 @@
 @import "_modal.scss";
 
 body {
+  font-family: 'Raleway', sans-serif;
   color: #ebebeb;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: top;
 }
 
 a {
   text-decoration: underline;
 }
 
-h3, h1, p {
-  font-family: 'Raleway', sans-serif;
-}
-
-p {
-  font-weight: 200;
-}
-
 h3 {
-   font-size: 26px;
+ font-size: 26px;
 }
 
-h1, h3 {
+h1, h3, p {
   font-weight: 200;
 }
 
@@ -107,13 +96,12 @@ h1, h3 {
 }
 
 .dropdown-menu {
-  background-image: none !important;
+  background-image: none;
   background-color: rgba(0, 0, 0, .1);
   border: none;
   min-width: 100%;
   line-height: 1;
   z-index: 10000 !important;
   padding: 0px !important;
-
 }
 
