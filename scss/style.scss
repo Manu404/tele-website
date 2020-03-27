@@ -24,25 +24,28 @@ h1, h3, p {
 
 .container {
   background-color: rgba(0,0,0,0.25) !important;
+  top: 50px;
 }
 
 .row {
-  margin-top: 20px;
+  margin-top: 2em;
 }
 
 .header {
   margin-top: 0px !important;
-  background-color: rgba(0,0,0,0.2) !important;
+  background:rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
 }
 
 .header-image {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 .band {
-  padding-bottom: 100px;
-  padding-top: 100px;
+  padding-bottom: 6em;
+  padding-top: 6em;
 }
 
 .footer {
@@ -73,7 +76,7 @@ h1, h3, p {
 }
 
 .navbar {
-  padding: 0px !important;
+  background:rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
 }
 
 .navbar-nav {

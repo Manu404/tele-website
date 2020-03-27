@@ -277,7 +277,7 @@ function buildNavBar() {
     var bgSelect = document.createElement("ul");
     var leftNavHolder = document.createElement("div");
 
-    nav.classList.add("navbar", "navbar-expand-sm", "navbar-dark", "bg-translucid-dark");
+    nav.classList.add("navbar", "navbar-expand-sm", "navbar-dark", "bg-translucid-dark", "fixed-top");
     toggleButton.classList.add("navbar-toggler");
     toggleButton.type = "button";
     toggleButton.setAttribute("data-toggle", "collapse");

@@ -7,7 +7,7 @@
         <bg moment="night" caption="22:00" />
         <bg moment="sleep" caption="03:00" />
     </background>
-    <header url="img/header_color.png">The Electric Looper Ensemble</header>
+    <header url="img/header.png">The Electric Looper Ensemble</header>
     <text>
         <![CDATA[
         <p style="text-align:center;">
