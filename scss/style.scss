@@ -33,14 +33,13 @@ h1, h3, p {
 
 .header {
   margin-top: 0px !important;
-  background:rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  mix-blend-mode: hard-light;
-  opacity: 0.5;
+  background:rgba(0, 0, 0, 0.25) none repeat scroll 0 0;
 }
 
 .header-image {
   margin-top: 3em;
   margin-bottom: 3em;
+  mix-blend-mode: overlay;
 }
 
 .band {
