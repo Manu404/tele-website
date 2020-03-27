@@ -67,10 +67,11 @@ h1, h3 {
 }
 
 .bg-img {
-  width: 100% !important;
-  height: 100vh !important;
-  position: fixed !important;
-  z-index: -1 !important;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  object-fit: cover;
 
   opacity: 0;
   -webkit-transition: opacity 1s ease-in-out;
@@ -98,17 +99,12 @@ h1, h3 {
   border: none !important;
   text-decoration: none;
 
-  &:hover{
+  &:hover, &:focus{
     background-image: none !important;
+    background-color: rgba(0, 0, 0, .1) !important;
+    border: none;
   }
 }
-
-.nav-link:focus, .nav-link:hover {
-  background-image: none !important;
-  background-color: rgba(0, 0, 0, .1) !important;
-  border: none;
-}
-
 
 .dropdown-menu {
   background-image: none !important;
