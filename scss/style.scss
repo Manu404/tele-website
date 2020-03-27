@@ -131,14 +131,13 @@ h1, h3, p {
 
 #modalLinks  {
   position: absolute;
-  left: 5%;
+  left: 50%;
   .nav-link {
     font-weight: 800;
     color: white !important;
     opacity: 1 !important;
   }
 
-  // Small devices (landscape phones, 576px and up)
   @media (min-width: 576px) {
     left: 50%;
   }

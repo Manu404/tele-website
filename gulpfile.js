@@ -1,67 +1,33 @@
  "use strict";
 
-// Load plugins
-const autoprefixer = require("gulp-autoprefixer");
-const browsersync = require("browser-sync").create();
+const gulp = require("gulp");
 const cleanCSS = require("gulp-clean-css");
 const del = require("del");
-const gulp = require("gulp");
 const merge = require("merge-stream");
-const header = require("gulp-header");
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
 const zip = require('gulp-zip');
-const addsrc = require('gulp-add-src');
 const pkg = require('./package.json');
 const concat = require('gulp-concat');
 
-// BrowserSync
-function browserSync(done) {
-    browsersync.init({
-        server: {
-            baseDir: "./"
-        },
-        port: 3000
-    });
-    done();
-}
-
-// BrowserSync reload
-function browserSyncReload(done) {
-    browsersync.reload();
-    done();
-}
-
-// Clean vendor
 function clean() {
     return del(["./vendor/", "./release/", "./*.zip"]);
 }
 
-function modules() {
+function module() {
     var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*.min.*').pipe(gulp.dest('./vendor/bootstrap'));
     var fa = gulp.src([
-        './node_modules/@fortawesome/fontawesome-free/js/all.min.js',
-        './node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-    ]).pipe(gulp.dest('./vendor/fa'));
+            './node_modules/@fortawesome/fontawesome-free/js/all.min.js',
+            './node_modules/@fortawesome/fontawesome-free/css/all.min.css'
+        ]).pipe(gulp.dest('./vendor/fa'));
     var jquery = gulp.src([
-        './node_modules/jquery/dist/*.min.js',
-        '!./node_modules/jquery/dist/core.min.js'
-    ]).pipe(gulp.dest('./vendor/jquery'));
+            './node_modules/jquery/dist/*.min.js',
+            '!./node_modules/jquery/dist/core.min.js'
+        ]).pipe(gulp.dest('./vendor/jquery'));
     var html5shiv = gulp.src('./node_modules/html5shiv/dist/**/*.min.js').pipe(gulp.dest('./vendor/html5shiv'));
     return merge(bootstrap, jquery, html5shiv, fa);
-}
-
-function mergeJs(){
-    return gulp
-        .src([
-            './js/*.js',
-            '!./js/*.min.js',
-            '!./js/*all*.js'
-        ])
-        .pipe(concat('all.js'))
-        .pipe(gulp.dest('./js/'));
 }
 
 function scss() {
@@ -78,8 +44,7 @@ function scss() {
             suffix: ".min"
         }))
         .pipe(cleanCSS())
-        .pipe(gulp.dest("./css"))
-        .pipe(browsersync.stream());
+        .pipe(gulp.dest("./css"));
 }
 
 
@@ -93,21 +58,29 @@ function js() {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('./js'))
-        .pipe(browsersync.stream());
+        .pipe(gulp.dest('./js'));
 }
+
+function mergeJs(){
+     return gulp
+         .src([
+             './js/*.js',
+             '!./js/*.min.js',
+             '!./js/*all*.js'
+         ])
+         .pipe(concat('all.js'))
+         .pipe(gulp.dest('./js/'));
+ }
 
 // Watch files
 function watchFiles() {
-    gulp.watch("./**/*.css", browserSyncReload);
-    gulp.watch("./**/*.html", browserSyncReload);
+    gulp.watch("./scss/**/*.scss", build);
+    gulp.watch(["./js/**/*.js","!./js/**/*.min.js","!./js/**all.js"], build);
 }
 
-gulp.task('release', () => {
+function release() {
     var css = gulp.src(['./css/**/*', '!./css/*.css', './css/*.min.css',])
         .pipe(gulp.dest('./release/css/'));
-    var img = gulp.src(['./img/**/*'], {allowEmpty: true})
-        .pipe(gulp.dest('./release/img/'));
     var js = gulp.src(['./js/all.min.js',])
         .pipe(gulp.dest('./release/js/'));
     var vendor = gulp.src(['./vendor/**/*',
@@ -116,23 +89,22 @@ gulp.task('release', () => {
         .pipe(gulp.dest('./release/vendor/'));
     var index = gulp.src(['./index.html'])
         .pipe(gulp.dest('./release/'));
-    var loc = gulp.src(['./content/*'])
+    var content = gulp.src(['./content/**/*'])
         .pipe(gulp.dest('./release/content/'));
-    return merge(css, img, js, vendor, index, loc);
-});
+    return merge(css, js, vendor, index, content);
+}
 
-gulp.task('mkZip', () =>
-    gulp.src('./release/**/*')
+function mkZip(){
+    return gulp.src('./release/**/*')
         .pipe(zip(pkg.title + '_' + pkg.version + '.zip'))
         .pipe(gulp.dest('./'))
-);
+}
 
-// Define complex tasks
-const vendor = gulp.series(clean, modules);
-const build = gulp.series(vendor, mergeJs, gulp.parallel(scss, js));
-const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
-const prod = gulp.series(build, 'release');
-const pack = gulp.series(prod, 'mkZip');
+const vendor = gulp.series(clean, module);
+const build = gulp.series(gulp.parallel(vendor, scss, js), mergeJs);
+const watch = gulp.series(build, watchFiles);
+const prod = gulp.series(build, release);
+const pack = gulp.series(prod, mkZip);
 
 // Export tasks
 exports.scss = scss;
