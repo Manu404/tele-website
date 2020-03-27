@@ -7,7 +7,7 @@
         <bg moment="night" caption="22:00" />
         <bg moment="sleep" caption="03:00" />
     </background>
-    <header url="img/header_color.png">The Electric Looper Ensemble</header>
+    <header url="header.png">The Electric Looper Ensemble</header>
     <text>
         <![CDATA[
         <p style="text-align:center;">
@@ -52,7 +52,7 @@
             performance.
         ]]>
     </text>
-    <image url="img/inc_score.gif">Score of In C by Terry Riley</image>
+    <image url="inc_score.gif">Score of In C by Terry Riley</image>
     <title>Why only use a single guitar ?</title>
     <text>
         <![CDATA[
@@ -92,13 +92,13 @@
                 fully custom live environment.
         ]]>
     </text>
-    <image url="img/usine.png">
+    <image url="usine.png">
         <![CDATA[
             Screenshot of <a href="https://www.brainmodular.com/">Usine HollyHock 4</a>, developed by
             <a href="https://www.brainmodular.com/about.html">Olivier Sens</a>, used as live performance software.
         ]]>
     </image>
-    <image url="img/moonburst.png">
+    <image url="moonburst.png">
         Screenshot of Moonburst, developed by the artist. Moonburst is an
         arduino based solution for musician that aim to provide a generic midi open source interface that accept as
         many 'generic' controller as possible, keeping the cost factor really low, yet versatile and open. Some
@@ -117,7 +117,7 @@
             algorithms.
         ]]>
     </text>
-    <image url="img/matrix.jpg">
+    <image url="matrix.jpg">
         <![CDATA[
             The <a href="https://www.lghs.be/">Liège Hackerspace</a> led matrix used in this project.
         ]]>

@@ -76,12 +76,12 @@ function buildHeader(url, caption){
     var img = document.createElement("img");
 
     img.classList.add("img-fluid", "header-image");
-    img.src = url;
+    img.src = "content/img/" + url;
     img.alt = caption;
 
     col.classList.add("col-12", "text-center");
 
-    row.classList.add("header")
+    row.classList.add("header");
 
     col.appendChild(img);
     row.appendChild(col);
@@ -213,13 +213,13 @@ function loadBackgroundImage(name){
     }
     else {
         var img_nav = document.createElement("img");
-        img_nav.src = "img/bg_" + name + ".jpg";
+        img_nav.src = "content/img/bg_" + name + ".jpg";
         img_nav.id = "nav" + name;
         img_nav.classList.add("bg-img-nav");
         document.getElementsByClassName('bgNavImgHolder')[0].appendChild(img_nav);
 
         var img = document.createElement("img");
-        img.src = "img/bg_" + name + ".jpg";
+        img.src = "content/img/bg_" + name + ".jpg";
         img.id = name;
         img.classList.add("bg-img");
         img.onload = function (source) {

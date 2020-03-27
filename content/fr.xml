@@ -7,7 +7,7 @@
         <bg moment="night" caption="22:00" />
         <bg moment="sleep" caption="03:00" />
     </background>
-    <header url="img/header_color.png">The Electric Looper Ensemble</header>
+    <header url="header.png">The Electric Looper Ensemble</header>
     <text>
         <![CDATA[
         <p style="text-align:center;">
@@ -49,7 +49,7 @@
 			une sorte d'octet.
         ]]>
     </text>
-    <image url="img/inc_score.gif">Partition de "In C" par Terry Riley</image>
+    <image url="inc_score.gif">Partition de "In C" par Terry Riley</image>
     <title>Pourquoi utiliser une (unique) guitare ?</title>
     <text>
         <![CDATA[
@@ -88,13 +88,13 @@
 				et concevoir un environnement live totallement personalisé et sur mesure.
         ]]>
     </text>
-    <image url="img/usine.png">
+    <image url="usine.png">
         <![CDATA[
             Capture d'écran de <a href="https://www.brainmodular.com/" target="_blank">Usine HollyHock 4</a>, dévelopé par
             <a href="https://www.brainmodular.com/about.html" target="_blank">Olivier Sens</a>, utilisé comme outil de performance live.
         ]]>
     </image>
-    <image url="img/moonburst.png">
+    <image url="moonburst.png">
        Capture d'écran de MoonBurst, Dévelopé par l'artiste, permettant d'interfacer du harware générique vers du midi.
     </image>
     <title>Que sont ces casiers ?</title>
@@ -106,7 +106,7 @@
 			en direct ce qui est joué par chaque loopers.
         ]]>
     </text>
-    <image url="img/matrix.jpg">
+    <image url="matrix.jpg">
         <![CDATA[
             La matrice développé par le <a href="https://www.lghs.be/" target="_blank">Liège Hackerspace</a> utilisé pour ce projet.
         ]]>

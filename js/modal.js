@@ -37,7 +37,7 @@ function buildModalImage(url,  cap){
 
     preview.classList.add("preview");
 
-    img.src = url;
+    img.src = "content/img/" + url;
     img.alt = cap;
     img.classList.add("img-fluid", "previewImage");
     img.onclick = function () {
