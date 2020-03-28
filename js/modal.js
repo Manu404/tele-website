@@ -37,13 +37,14 @@ function buildModalImage(url,  cap){
 
     preview.classList.add("preview");
 
-    img.src = buildImageUrl(url, "jpg");
+    img.src = buildImageUrl(url + "_min", "jpg");
     img.alt = cap;
+    img.dataset.imgUrl = url;
     img.classList.add("img-fluid", "previewImage");
-    img.onclick = function () {
+    img.onclick = function (source) {
         modal.style.display = "block";
-        modalImg.src = this.src;
-        modalCaption.innerHTML = this.alt;
+        modalImg.src = source.target.dataset.imgUrl;
+        modalCaption.innerHTML = source.target.alt;
     };
 
     captionPara.classList.add("previewCaption");
