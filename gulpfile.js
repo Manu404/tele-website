@@ -103,9 +103,9 @@ function release() {
         .pipe(gulp.dest('./release/content/img/'));
     var png = gulp.src(['./content/img/**/*.png', '!./content/img/source/**/*', '!./content/img/fav/**/*'])
         .pipe(gulp.dest('./release/content/img/'));
-    var png = gulp.src(['./content/img/fav/**/*'])
+    var fav = gulp.src(['./content/img/fav/**/*'])
         .pipe(gulp.dest('./release/content/img/fav'));
-    return merge(css, js, vendor, index, content, jpg, png, htaccess);
+    return merge(css, js, vendor, index, content, jpg, png, htaccess, fav);
 }
 
 function mkZip(){
@@ -114,7 +114,7 @@ function mkZip(){
         .pipe(gulp.dest('./'))
 }
 
-const build = gulp.series(clean, gulp.parallel(module, scss, js), mergeJs);
+const build = gulp.series(clean, mergeJs, gulp.parallel(module, scss, js));
 const watch = gulp.series(build, watchFiles);
 const prod = gulp.series(build, release);
 const pack = gulp.series(prod, mkZip);
