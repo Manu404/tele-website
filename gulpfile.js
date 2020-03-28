@@ -100,8 +100,7 @@ function mkZip(){
         .pipe(gulp.dest('./'))
 }
 
-const vendor = gulp.series(clean, module);
-const build = gulp.series(gulp.parallel(vendor, scss, js), mergeJs);
+const build = gulp.series(clean, gulp.parallel(module, scss, js), mergeJs);
 const watch = gulp.series(build, watchFiles);
 const prod = gulp.series(build, release);
 const pack = gulp.series(prod, mkZip);
@@ -111,7 +110,6 @@ exports.scss = scss;
 exports.js = js;
 exports.clean = clean;
 exports.prod = prod;
-exports.vendor = vendor;
 exports.build = build;
 exports.watch = watch;
 exports.default = prod;

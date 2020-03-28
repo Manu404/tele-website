@@ -1,6 +1,6 @@
 function  buildDefaultCol() {
     var col = document.createElement("div");
-    col.classList.add("offset-xl-2", "col-xl-8", "col-md-8", "col-xs-8");
+    col.classList.add("offset-xl-2", "offset-lg-1", "col-xl-8", "col-lg-10");
     return col;
 }
 
@@ -64,6 +64,7 @@ function buildText(content){
     var p = document.createElement("p");
 
     p.innerHTML = content;
+
     col.appendChild(p);
     row.appendChild(col);
 
@@ -246,10 +247,11 @@ function showBackgroundImage(name){
 function loadCurrentBackground() {
     var current = (new Date()).getHours();
     var name;
+    console.log(current);
     if(current >= 6 && current < 13) {  name = "morning"; }
     else if(current >= 13 && current < 19) { name = "day"; }
     else if(current >= 19 && current < 22) { name = "evening"; }
-    else if(current >= 22 && current < 3) { name = "night"; }
+    else if(current >= 22 || current < 3) { name = "night"; }
     else if(current >= 3 && current < 6) { name = "sleep"; }
     else {
         return;
