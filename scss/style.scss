@@ -143,3 +143,17 @@ h1, h3, p {
   }
 }
 
+.videoPlaceHolder {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Bottom left text */
+.videoPlaceHolderText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
