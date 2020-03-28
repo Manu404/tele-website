@@ -24,12 +24,13 @@ function module() {
             './node_modules/@fortawesome/fontawesome-free/js/all.min.js',
             './node_modules/@fortawesome/fontawesome-free/css/all.min.css'
         ]).pipe(gulp.dest('./vendor/fa'));
+    var wf = gulp.src(['./node_modules/@fortawesome/fontawesome-free/webfonts/**/*']).pipe(gulp.dest('./vendor/webfonts'));
     var jquery = gulp.src([
             './node_modules/jquery/dist/*.min.js',
             '!./node_modules/jquery/dist/core.min.js'
         ]).pipe(gulp.dest('./vendor/jquery'));
     var html5shiv = gulp.src('./node_modules/html5shiv/dist/**/*.min.js').pipe(gulp.dest('./vendor/html5shiv'));
-    return merge(bootstrap, jquery, html5shiv, fa);
+    return merge(bootstrap, jquery, html5shiv, fa, wf);
 }
 
 function scss() {
@@ -91,12 +92,14 @@ function release() {
         .pipe(gulp.dest('./release/vendor/'));
     var index = gulp.src(['./index.html'])
         .pipe(gulp.dest('./release/'));
-    var content = gulp.src(['./content/**/*', '!./content/img/**/*', ])
+    var content = gulp.src(['./content/**/*', '!./content/img/**/*'])
         .pipe(gulp.dest('./release/content/'));
-    var img = gulp.src(['./content/img/opti/**/*'])
+    var jpg = gulp.src(['./content/img/**/*.jpg', '!./content/img/source/**/*'])
         .pipe(imagemin())
         .pipe(gulp.dest('./release/content/img/'));
-    return merge(css, js, vendor, index, content, img);
+    var png = gulp.src(['./content/img/**/*.png', '!./content/img/source/**/*'])
+        .pipe(gulp.dest('./release/content/img/'));
+    return merge(css, js, vendor, index, content, jpg, png);
 }
 
 function mkZip(){

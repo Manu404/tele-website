@@ -2,6 +2,10 @@ function getImageUrl(){
     return "content/img/";
 }
 
+function buildImageUrl(name, extension){
+    return getImageUrl() + name + "." + extension;
+}
+
 function  buildDefaultCol() {
     var col = document.createElement("div");
     col.classList.add("offset-xl-2", "offset-lg-1", "col-xl-8", "col-lg-10");
@@ -81,7 +85,7 @@ function buildHeader(url, caption){
     var img = document.createElement("img");
 
     img.classList.add("img-fluid", "header-image");
-    img.src = getImageUrl() + url;
+    img.src = buildImageUrl(url, "png");
     img.alt = caption;
 
     col.classList.add("col-12", "text-center");
@@ -218,13 +222,13 @@ function loadBackgroundImage(name){
     }
     else {
         var img_nav = document.createElement("img");
-        img_nav.src = getImageUrl() + "bg_" + name + ".jpg";
+        img_nav.src = buildImageUrl("bg_" + name, "jpg");
         img_nav.id = "nav" + name;
         img_nav.classList.add("bg-img-nav");
         document.getElementsByClassName('bgNavImgHolder')[0].appendChild(img_nav);
 
         var img = document.createElement("img");
-        img.src = getImageUrl() + "bg_" + name + ".jpg";
+        img.src = buildImageUrl("bg_" + name, "jpg");
         img.id = name;
         img.classList.add("bg-img");
         img.onload = function (source) {
