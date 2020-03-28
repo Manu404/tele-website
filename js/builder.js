@@ -1,3 +1,7 @@
+function getImageUrl(){
+    return "content/img/";
+}
+
 function  buildDefaultCol() {
     var col = document.createElement("div");
     col.classList.add("offset-xl-2", "offset-lg-1", "col-xl-8", "col-lg-10");
@@ -77,7 +81,7 @@ function buildHeader(url, caption){
     var img = document.createElement("img");
 
     img.classList.add("img-fluid", "header-image");
-    img.src = "content/img/" + url;
+    img.src = getImageUrl() + url;
     img.alt = caption;
 
     col.classList.add("col-12", "text-center");
@@ -214,13 +218,13 @@ function loadBackgroundImage(name){
     }
     else {
         var img_nav = document.createElement("img");
-        img_nav.src = "content/img/bg_" + name + ".jpg";
+        img_nav.src = getImageUrl() + "bg_" + name + ".jpg";
         img_nav.id = "nav" + name;
         img_nav.classList.add("bg-img-nav");
         document.getElementsByClassName('bgNavImgHolder')[0].appendChild(img_nav);
 
         var img = document.createElement("img");
-        img.src = "content/img/bg_" + name + ".jpg";
+        img.src = getImageUrl() + "bg_" + name + ".jpg";
         img.id = name;
         img.classList.add("bg-img");
         img.onload = function (source) {
@@ -248,11 +252,12 @@ function loadCurrentBackground() {
     var current = (new Date()).getHours();
     var name;
     console.log(current);
-    if(current >= 6 && current < 13) {  name = "morning"; }
+    if(current >= 8 && current < 10) {  name = "wakeup"; }
+    else if(current >= 10 && current < 13) { name = "morning"; }
     else if(current >= 13 && current < 19) { name = "day"; }
     else if(current >= 19 && current < 22) { name = "evening"; }
     else if(current >= 22 || current < 3) { name = "night"; }
-    else if(current >= 3 && current < 6) { name = "sleep"; }
+    else if(current >= 3 && current < 8) { name = "sleep"; }
     else {
         return;
     }

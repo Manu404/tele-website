@@ -11,10 +11,12 @@ const uglify = require("gulp-uglify");
 const zip = require('gulp-zip');
 const pkg = require('./package.json');
 const concat = require('gulp-concat');
+const imagemin = require('gulp-imagemin');
 
 function clean() {
     return del(["./vendor/", "./release/", "./*.zip"]);
 }
+
 
 function module() {
     var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*.min.*').pipe(gulp.dest('./vendor/bootstrap'));
@@ -89,9 +91,12 @@ function release() {
         .pipe(gulp.dest('./release/vendor/'));
     var index = gulp.src(['./index.html'])
         .pipe(gulp.dest('./release/'));
-    var content = gulp.src(['./content/**/*'])
+    var content = gulp.src(['./content/**/*', '!./content/img/**/*', ])
         .pipe(gulp.dest('./release/content/'));
-    return merge(css, js, vendor, index, content);
+    var img = gulp.src(['./content/img/opti/**/*'])
+        .pipe(imagemin())
+        .pipe(gulp.dest('./release/content/img/'));
+    return merge(css, js, vendor, index, content, img);
 }
 
 function mkZip(){
