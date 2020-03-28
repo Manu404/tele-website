@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content title="The Electric Looper Ensemble" lang="en">
     <background caption="Background">
-        <bg moment="wakeup" caption="08:00" />
+        <bg moment="sunrise" caption="06:00" />
+        <bg moment="wakeup" caption="07:00" />
         <bg moment="morning" caption="10:00" />
         <bg moment="day" caption="13:00" />
-        <bg moment="evening" caption="19:00" />
+        <bg moment="evening" caption="18:00" />
+        <bg moment="sunset" caption="20:00" />
         <bg moment="night" caption="22:00" />
         <bg moment="sleep" caption="03:00" />
     </background>

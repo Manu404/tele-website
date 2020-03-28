@@ -1,5 +1,7 @@
  "use strict";
 
+// todo https://www.npmjs.com/package/gulp-real-favicon
+
 const gulp = require("gulp");
 const cleanCSS = require("gulp-clean-css");
 const del = require("del");

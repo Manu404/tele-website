@@ -256,12 +256,14 @@ function loadCurrentBackground() {
     var current = (new Date()).getHours();
     var name;
     console.log(current);
-    if(current >= 8 && current < 10) {  name = "wakeup"; }
+    if(current >= 6 && current < 7) {  name = "sunrise"; }
+    else if(current >= 7 && current < 10) { name = "wakeup"; }
     else if(current >= 10 && current < 13) { name = "morning"; }
-    else if(current >= 13 && current < 19) { name = "day"; }
-    else if(current >= 19 && current < 22) { name = "evening"; }
+    else if(current >= 13 && current < 18) { name = "day"; }
+    else if(current >= 18 && current < 20) { name = "evening"; }
+    else if(current >= 20 && current < 22) { name = "sunset"; }
     else if(current >= 22 || current < 3) { name = "night"; }
-    else if(current >= 3 && current < 8) { name = "sleep"; }
+    else if(current >= 3 && current < 6) { name = "sleep"; }
     else {
         return;
     }
