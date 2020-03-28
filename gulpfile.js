@@ -92,14 +92,18 @@ function release() {
         .pipe(gulp.dest('./release/vendor/'));
     var index = gulp.src(['./index.html'])
         .pipe(gulp.dest('./release/'));
+    var htaccess = gulp.src(['./.htaccess'])
+        .pipe(gulp.dest('./release/'));
     var content = gulp.src(['./content/**/*', '!./content/img/**/*'])
         .pipe(gulp.dest('./release/content/'));
-    var jpg = gulp.src(['./content/img/**/*.jpg', '!./content/img/source/**/*'])
+    var jpg = gulp.src(['./content/img/**/*.jpg', '!./content/img/source/**/*', '!./content/img/fav/**/*'])
         .pipe(imagemin())
         .pipe(gulp.dest('./release/content/img/'));
-    var png = gulp.src(['./content/img/**/*.png', '!./content/img/source/**/*'])
+    var png = gulp.src(['./content/img/**/*.png', '!./content/img/source/**/*', '!./content/img/fav/**/*'])
         .pipe(gulp.dest('./release/content/img/'));
-    return merge(css, js, vendor, index, content, jpg, png);
+    var png = gulp.src(['./content/img/fav/**/*'])
+        .pipe(gulp.dest('./release/content/img/fav'));
+    return merge(css, js, vendor, index, content, jpg, png, htaccess);
 }
 
 function mkZip(){
