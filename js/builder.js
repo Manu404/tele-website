@@ -183,7 +183,7 @@ function buildDynamicBackgroundHolder(node){
     nava.classList.add("nav-link", "dropdown-toggle");
     nava.href = "#";
     nava.setAttribute("data-toggle", "dropdown");
-    icon.classList.add("fas", "fa-cloud-moon");
+    icon.classList.add("icon-cloud-sun");
     nava.appendChild(icon);
     menu.classList.add("dropdown-menu", "dropdown-menu-right");
     list.classList.add("list-inline");

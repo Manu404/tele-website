@@ -14,25 +14,22 @@ const concat = require('gulp-concat');
 const imagemin = require('gulp-imagemin');
 const realFavicon = require('gulp-real-favicon');
 const fs = require('fs');
+const fontello = require('gulp-fontello');
+const print = require('gulp-print').default;
+const filter = require('gulp-filter');
 
 function clean() {
     return del(["./vendor/", "./release/", "./*.zip"]);
 }
 
-
 function module() {
     var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*.min.*').pipe(gulp.dest('./vendor/bootstrap'));
-    var fa = gulp.src([
-        './node_modules/@fortawesome/fontawesome-free/js/all.min.js',
-        './node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-    ]).pipe(gulp.dest('./vendor/fa'));
-    var wf = gulp.src(['./node_modules/@fortawesome/fontawesome-free/webfonts/**/*']).pipe(gulp.dest('./vendor/webfonts'));
     var jquery = gulp.src([
         './node_modules/jquery/dist/*.min.js',
         '!./node_modules/jquery/dist/core.min.js'
     ]).pipe(gulp.dest('./vendor/jquery'));
     var html5shiv = gulp.src('./node_modules/html5shiv/dist/**/*.min.js').pipe(gulp.dest('./vendor/html5shiv'));
-    return merge(bootstrap, jquery, html5shiv, fa, wf);
+    return merge(bootstrap, jquery, html5shiv);
 }
 
 function scss() {
@@ -44,16 +41,33 @@ function scss() {
             includePaths: "./node_modules",
         }))
         .on("error", sass.logError)
-        .pipe(gulp.dest("./css"))
-        .pipe(rename({
-            suffix: ".min"
-        }))
-        .pipe(cleanCSS())
         .pipe(gulp.dest("./css"));
 }
 
+function mergeCSS() {
+    return gulp
+        .src([
+            './css/*.css',
+            '!./css/*.min.css',
+            '!./css/*all*.css'
+        ])
+        .pipe(concat('all.css'))
+        .pipe(gulp.dest('./css/'));
+}
 
-function js() {
+function minifyCss () {
+    return gulp.src([
+            './css/*.css',
+            '!./css/*.min.css',
+        ])
+        .pipe(cleanCSS())
+        .pipe(rename({
+            suffix: ".min"
+        }))
+        .pipe(gulp.dest('./css/'));
+}
+
+function minifyJs() {
     return gulp
         .src([
             './js/*.js',
@@ -77,6 +91,8 @@ function mergeJs() {
         .pipe(gulp.dest('./js/'));
 }
 
+
+
 // Watch files
 function watchFiles() {
     gulp.watch("./scss/**/*.scss", build);
@@ -84,7 +100,7 @@ function watchFiles() {
 }
 
 function release() {
-    var css = gulp.src(['./css/**/*', '!./css/*.css', './css/*.min.css',])
+    var css = gulp.src(['./css/all.min.css'])
         .pipe(gulp.dest('./release/css/'));
     var js = gulp.src(['./js/all.min.js',])
         .pipe(gulp.dest('./release/js/'));
@@ -209,7 +225,16 @@ gulp.task('check-for-favicon-update', function (done) {
     });
 });
 
-const build = gulp.series(clean, mergeJs, gulp.parallel(module, scss, js));
+function glyph () {
+    return gulp.src('glyph.json')
+        .pipe(fontello({
+            css: "css",
+            font: "content/font"
+        }))
+        .pipe(gulp.dest('./'));
+}
+
+const build = gulp.series(clean, glyph, gulp.parallel(mergeCSS, mergeJs), gulp.parallel(module, scss), gulp.parallel(minifyCss, minifyJs));
 const watch = gulp.series(build, watchFiles);
 const prod = gulp.series(build, release);
 const pack = gulp.series(prod, mkZip);
@@ -218,8 +243,8 @@ const fav = gulp.series('check-for-favicon-update', genFav, 'inject-favicon-mark
 
 // Export tasks
 exports.scss = scss;
-exports.js = js;
 exports.clean = clean;
+exports.glyph = glyph;
 exports.prod = prod;
 exports.build = build;
 exports.watch = watch;
