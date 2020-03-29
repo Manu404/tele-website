@@ -131,7 +131,7 @@ gulp.task('generate-favicon', function (done) {
                     precomposedIcons: false,
                     declareOnlyDefaultIcon: true
                 },
-                appName: 'Emmanuel Istace'
+                appName: 'The Electric Looper Ensemble'
             },
             desktopBrowser: {
                 design: 'raw'
@@ -153,13 +153,13 @@ gulp.task('generate-favicon', function (done) {
                         rectangle: false
                     }
                 },
-                appName: 'Emmanuel Istace'
+                appName: 'The Electric Looper Ensemble'
             },
             androidChrome: {
                 pictureAspect: 'noChange',
                 themeColor: '#ffffff',
                 manifest: {
-                    name: 'Emmanuel Istace',
+                    name: 'The Electric Looper Ensemble',
                     display: 'standalone',
                     orientation: 'notSet',
                     onConflict: 'override',
