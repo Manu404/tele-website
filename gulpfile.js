@@ -234,14 +234,14 @@ function glyph () {
         .pipe(gulp.dest('./'));
 }
 
-const build = gulp.series(clean, glyph, gulp.parallel(mergeCSS, mergeJs), gulp.parallel(module, scss), gulp.parallel(minifyCss, minifyJs));
+const build = gulp.series(clean, glyph, gulp.parallel(modules, scss), gulp.parallel(mergeCSS, mergeJs),  gulp.parallel(minifyCss, minifyJs));
 const watch = gulp.series(build, watchFiles);
 const prod = gulp.series(build, release);
 const pack = gulp.series(prod, mkZip);
 const genFav = gulp.series('generate-favicon');
 const fav = gulp.series('check-for-favicon-update', genFav, 'inject-favicon-markups');
 
-// Export tasks
+
 exports.scss = scss;
 exports.clean = clean;
 exports.glyph = glyph;
