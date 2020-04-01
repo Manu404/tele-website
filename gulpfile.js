@@ -91,15 +91,12 @@ function mergeJs() {
         .pipe(gulp.dest('./js/'));
 }
 
-
-
-// Watch files
-function watchFiles() {
+gulp.task('watchFiles', function () {
     gulp.watch("./scss/**/*.scss", build);
     gulp.watch(["./js/**/*.js", "!./js/**/*.min.js", "!./js/**all.js"], build);
-}
+});
 
-function release() {
+gulp.task('release', function () {
     var css = gulp.src(['./css/all.min.css'])
         .pipe(gulp.dest('./release/css/'));
     var js = gulp.src(['./js/all.min.js',])
@@ -122,13 +119,13 @@ function release() {
     var fav = gulp.src(['./content/img/fav/**/*'])
         .pipe(gulp.dest('./release/content/img/fav'));
     return merge(css, js, vendor, index, content, jpg, png, htaccess, fav);
-}
+});
 
-function mkZip() {
+gulp.task('mkZip', function (done) {
     return gulp.src('./release/**/*')
         .pipe(zip(pkg.title + '_' + pkg.version + '.zip'))
         .pipe(gulp.dest('./'))
-}
+});
 
 
 var FAVICON_DATA_FILE = 'faviconData.json';
@@ -225,30 +222,29 @@ gulp.task('check-for-favicon-update', function (done) {
     });
 });
 
-function glyph () {
+gulp.task('glyph', function () {
     return gulp.src('glyph.json')
         .pipe(fontello({
             css: "css",
             font: "content/font"
         }))
         .pipe(gulp.dest('./'));
-}
+});
 
-const build = gulp.series(clean, glyph, gulp.parallel(modules, scss), gulp.parallel(mergeCSS, mergeJs),  gulp.parallel(minifyCss, minifyJs));
-const watch = gulp.series(build, watchFiles);
-const prod = gulp.series(build, release);
-const pack = gulp.series(prod, mkZip);
+const build = gulp.series(clean, 'glyph', gulp.parallel(module, scss), gulp.parallel(mergeCSS, mergeJs),  gulp.parallel(minifyCss, minifyJs));
+const watch = gulp.series(build, 'watchFiles');
+const release = gulp.series(build, 'release');
+const pack = gulp.series(release, 'mkZip');
 const genFav = gulp.series('generate-favicon');
 const fav = gulp.series('check-for-favicon-update', genFav, 'inject-favicon-markups');
 
 
 exports.scss = scss;
 exports.clean = clean;
-exports.glyph = glyph;
-exports.prod = prod;
+exports.release = release;
 exports.build = build;
 exports.watch = watch;
-exports.default = prod;
+exports.default = build;
 exports.pack = pack;
 exports.genFav = genFav;
 exports.fav = fav;
