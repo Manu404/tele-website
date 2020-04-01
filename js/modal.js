@@ -39,7 +39,7 @@ function buildModalImage(url,  cap){
 
     img.src = buildImageUrl(url + "_min", "jpg");
     img.alt = cap;
-    img.dataset.imgUrl = buildImageUrl(url + "_min", "jpg");
+    img.dataset.imgUrl = buildImageUrl(url, "jpg");
     img.classList.add("img-fluid", "previewImage");
     img.onclick = function (source) {
         modal.style.display = "block";
