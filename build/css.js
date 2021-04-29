@@ -42,10 +42,11 @@ gulp.task('minifyCss', function () {
 });
 
 gulp.task('glyph', function () {
-    return gulp.src('build/glyph.json')
+    return gulp.src('./build/glyph.json')
         .pipe(fontello({
             css: "css",
-            font: "content/font"
+            font: "content/font",
+			host: 'https://fontello.com'
         }))
         .pipe(gulp.dest('./'));
 });
